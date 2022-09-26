@@ -1,0 +1,23 @@
+.cardHolder {
+    width: 20%;
+    height: 20%;
+    min-width: 155px;
+    min-height: 155px;
+    max-width: 250px;
+    max-height: 250px;
+    background-color: rgb(214, 217, 218);
+    padding: 7px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 5%;
+}
+.cardHolder img {
+    border-radius: 5%;
+    height: 85%;
+    width: 85%;
+}
+
+.prodInfo {
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -1,0 +1,32 @@
+.accountContainer h3 {
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+.orderHistory {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    min-height: 1000px;
+}
+.order {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    background-color: gray;
+    margin-bottom: 5px;
+}
+.accButtons {
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    justify-content: space-evenly;
+
+}
+.accButtons h5 {
+    border: 1px solid black;
+    padding: 5px;
+}

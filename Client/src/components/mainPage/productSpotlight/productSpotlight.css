@@ -1,0 +1,55 @@
+.spotlightContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    margin-top: -5px;
+}
+.spotlightImg {
+    height: 550px;
+    width: 280px;
+    padding: 3px;
+    margin-bottom: -5px;
+    
+}
+.overlay {
+    height: 550px;
+    width: 280px;
+    opacity: 0;
+    margin-left: 0px;
+    position: relative;
+    bottom: 555px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.25s;
+}
+.overlay:hover {
+    opacity: 1;
+}
+.overlay > .upperText {
+    transform: translateY(-20px);
+    transition: transform 0.45s;
+}
+.overlay:hover > .upperText {
+    transform: translateY(10px)
+}
+.upperText {
+    color: rgb(255, 255, 255);
+    position: relative;
+    top: 25px;
+    width: 80%;
+    padding-left: 25px;
+    text-shadow: 2px 2px 4px #000000;
+    
+}
+.lowerText {
+    color: rgb(255, 255, 255);
+    position: relative;
+    top: 420px;
+    text-shadow: 2px 2px 4px #000000;
+    
+}
+.div1 {
+    max-height: 565px;
+}

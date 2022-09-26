@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header-container {
+    display: flex;
+    justify-content: space-evenly;
+    position: -webkit-sticky;
+    position: sticky;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border-bottom: 1px solid black;
+}
+.header-container div {
+    margin-top: 8px;
+}
+.cartButton::before {
+    content: '0';
+    position: absolute;
+    right: 75px;
+    top: 1px;   
+    width: 1.5em;
+    height: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+}
+.button-container {
+    margin-left: 20px;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+  }

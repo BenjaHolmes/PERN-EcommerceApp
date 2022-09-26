@@ -1,0 +1,22 @@
+.itemlist2 {
+    width: 60%;
+    height: 100%;
+    min-height: 1250px;
+}
+.checkoutContainer h1 {
+    padding: 10px;
+    margin-bottom: -150px;
+}
+.infoContainer {
+    display: flex;
+}
+.paymentContainer {
+    width: 35%;
+    height: 50%;
+    min-height: 400px;
+    background-color: goldenrod;
+    display: flex;
+    flex-direction: column;
+}
+
+   

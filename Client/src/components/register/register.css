@@ -1,0 +1,42 @@
+.regContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.regCard {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 50%;
+    height: 53%;
+    border-radius: 5%;
+    background-color: white;
+    border: 1px solid black;
+    margin-top: 10px;
+    z-index: 99;
+}
+.regTitle {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.regCard input {
+    width: 70%;
+    text-align: center;
+    height: 35px;
+    margin: 15px;
+    
+}
+.regCard h3 {
+    margin-top: 50px;
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+.regCard h5 {
+    color: rgb(110, 26, 26);
+    position: absolute;
+    font-size: 25px;
+    top: -5px;
+    right: 25px;
+    cursor: pointer;
+}

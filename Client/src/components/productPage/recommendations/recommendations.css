@@ -1,0 +1,13 @@
+.recommendationsContainer {
+    height: 100%;
+    margin-bottom: 15px;
+}
+.recommendationsContainer h2 {
+    float: left;
+    margin-left: 5%;
+    margin-top: 1%;
+    text-decoration: underline;
+}
+.productList {
+    margin-left: 5px;
+}

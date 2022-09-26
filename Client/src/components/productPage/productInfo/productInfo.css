@@ -1,0 +1,24 @@
+.infoContainer {
+    margin-top: 15%;
+}
+
+.infoContainer h2 {
+    float: left;
+    margin-left: 20px;
+}
+
+.prodDescription ul {
+    list-style: none;
+    float: left;
+    text-align: start;
+    margin-left: 20px;
+}
+.cartButtons {
+    margin-top: 55px;
+    margin-bottom: 15px;
+    display: flex;
+    height: 50px;
+    width: 200px;
+    background-color: red;
+    margin-left: 20px;
+}
