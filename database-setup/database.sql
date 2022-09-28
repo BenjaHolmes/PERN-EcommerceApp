@@ -12,7 +12,8 @@ CREATE TABLE users (
   name VARCHAR(50),
   description VARCHAR(255),
   price MONEY,
-  stock int NOT NULL
+  stock int NOT NULL,
+  picture_path VARCHAR(50)
 );
 
 CREATE TABLE category (
