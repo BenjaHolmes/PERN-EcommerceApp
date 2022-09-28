@@ -12,17 +12,17 @@ CREATE TABLE users (
   name VARCHAR(50),
   description VARCHAR(255),
   price MONEY,
-  stock int NOT NULL,
+  stock int NOT NULL
 );
 
 CREATE TABLE category (
     id BIGSERIAL PRIMARY KEY,
-    type VARCHAR(50),
+    type VARCHAR(50)
 )
 
 CREATE TABLE product_category (
     product_id BIGSERIAL REFERENCES products(id),
-    category_id BIGSERIAL REFERENCES category(id),    
+    category_id BIGSERIAL REFERENCES category(id)    
 )
 
 CREATE TABLE cart (
@@ -52,5 +52,5 @@ CREATE TABLE reviews (
     user_id BIGSERIAL REFERENCES users(id),
     product_id BIGSERIAL REFERENCES products(id),
     body VARCHAR (255),
-    star_rating INTEGER,
+    star_rating INTEGER
 )
