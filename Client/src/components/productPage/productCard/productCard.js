@@ -2,15 +2,26 @@ import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import './productCard.css';
 
-const ProductCard = () => {
+
+const ProductCard = (props) => {
     const navigate = useNavigate();
+    const imgPath = `/productImages/${props.path}.jpg`;
     return (
-        <div className='cardHolder' onClick={()=>navigate("/products/1")}>
-            <img src='https://cdn.sweatband.com/head_revolt_junior_tennis_shoes_head_revolt_junior_tennis_shoes-side_2000x2000.jpg' alt=''></img>
+        <div className='cardHolder' 
+        onClick={()=>navigate(`/products/${props.id}`, {
+            state: {
+                name: props.name,
+                price: props.price,
+                description: props.description,
+                path: props.path,
+                id: props.id
+            }
+        })}>
+            <img src={imgPath} alt=''></img>
             <div className='prodInfo'>
-                <p>Shoes</p>
-                <p> £15.00</p>
-                <button> Add 2 Cart</button>
+                <p>{props.name}</p>
+                <p> {props.price} </p>
+                <button> Add to Cart</button>
             </div>
         </div>
     );

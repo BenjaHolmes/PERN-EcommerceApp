@@ -1,10 +1,10 @@
 import React from 'react';
 import './productPic.css';
 
-const ProductPic = () => {
+const ProductPic = (props) => {
     return (
         <div className='picContainer'>
-            <img src='https://cdn.sweatband.com/head_revolt_junior_tennis_shoes_head_revolt_junior_tennis_shoes-side_2000x2000.jpg' alt=''></img>
+            <img src={`/productImages/${props.path}.jpg`} alt=''></img>
         </div>
     );
 }
