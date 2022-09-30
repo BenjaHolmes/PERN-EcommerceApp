@@ -19,9 +19,8 @@ const ProductCard = (props) => {
         })}>
             <img src={imgPath} alt=''></img>
             <div className='prodInfo'>
-                <p>{props.name}</p>
-                <p> {props.price} </p>
-                <button> Add to Cart</button>
+                <p className='prodName'>{props.name}</p>
+                <p className='prodPrice'> {props.price} </p>
             </div>
         </div>
     );

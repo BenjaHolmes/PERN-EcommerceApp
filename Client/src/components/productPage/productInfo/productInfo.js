@@ -6,17 +6,23 @@ const ProductInfo = (props) => {
         <div>
         <div className='infoContainer'>
             <h1> {props.name} </h1>
-            <h2> {props.price} </h2>
         </div>
-        <div className="cartButtons">
-            <p> - </p>
-            <p> + </p>
-            <p> Add to Cart </p>
+        <div className="priceContainer">
+            <h2 className='productPrice'> {props.price} </h2>
+        </div>
+        <div className="dropdownContainer">
+                <select name="Size" id="size">
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                    <option value="Xtra Large">Xtra Large</option>
+                </select>
+                <button> Add to Cart </button>
         </div>
         <div className="prodDescription">
-            <ul> 
-                <li> {props.description} </li> 
-            </ul>
+            <p>
+                 {props.description}
+            </p>
         </div>
         </div>
     );

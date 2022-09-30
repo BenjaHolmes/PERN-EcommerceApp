@@ -9,7 +9,7 @@
     position: sticky;
     width: 100%;
     height: 50px;
-    background-color: white;
+    background-color: rgb(214, 217, 218);
     border-bottom: 1px solid black;
 }
 .header-container div {
@@ -38,4 +38,21 @@
     height: 3px;
     background-color: #333;
     margin: 6px 0;
+  }
+  .logo {
+    font-size: 1.25rem;
+    font-family: 'Bebas Neue', cursive;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+  }
+  .logo span {
+    color: blue;
+  }
+  .logo img {
+    height: 40px;
+    width: 55px;
+    margin-right: -5px;
   }

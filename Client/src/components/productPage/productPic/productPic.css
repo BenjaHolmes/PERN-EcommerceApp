@@ -1,15 +1,12 @@
 .picContainer {
-   width: 45%;  
-   height: 45%;
-   
+    width: 40%;
 }
 .picContainer img {
-    min-height: auto;
-    min-width: auto;
+    min-height: 200px;
+    min-width: 200px;
     max-width: 370px;
     max-height: 370px;
-    border: 1px solid black;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    margin-left: 10px;
+    border: 2px solid white;
+    border-radius: 2.5%;
+    margin: 8%;
 }

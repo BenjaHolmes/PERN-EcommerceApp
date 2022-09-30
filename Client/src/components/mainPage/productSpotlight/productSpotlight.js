@@ -7,11 +7,15 @@ import img4 from '../../../imgs/productSpotlightImgs/prod4.jpg';
 
 const ProductSpotlight = () => {
     return (
+        <div>
+            <div className="spotlightHeader">
+                <h3> NEW RANGE OF TRAINERS <span> COMING SOON </span> </h3>
+            </div>
         <div className='spotlightContainer'>
             <div className="div1">
                 <img id='prod1' className='spotlightImg' src={img1} alt='Black Nike HighTops' />
                 <div className="overlay">
-                    <figcaption className='upperText'> Nike React Pegasus Trail 4 GORE-TEX </figcaption>
+                    <figcaption className='upperText'> Nike React Pegasus Trail 4 </figcaption>
                     <figcaption className='lowerText'> £145.00 </figcaption>
                 </div>
             </div>
@@ -35,6 +39,10 @@ const ProductSpotlight = () => {
                     <figcaption className='upperText'> Nike Downshifter 12 </figcaption>
                     <figcaption className='lowerText'> £60.00 </figcaption>
                 </div>
+            </div>
+        </div>
+        <div className="spotlightFooter">
+                <h4> SIGN UP TO THE MAILING LIST TO PRE-ORDER </h4>
             </div>
         </div>
     );

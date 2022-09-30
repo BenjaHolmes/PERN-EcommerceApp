@@ -1,5 +1,6 @@
 import React from 'react';
 import './header.css'
+import img1 from '../../imgs/BillionLogo.png';
 import { useState } from 'react';
 import ShoppingCart from './shoppingCart/shoppingCart';
 import LogIn from '../login/login.js';
@@ -38,8 +39,9 @@ const Header = () => {
     return (
         <div>
         <div className='header-container'>
-            <div className="logo"> Logo </div>
-            <div className="home" onClick={()=>navigate("/")}> Home </div>
+            <div className="logo" onClick={()=>navigate("/")}>
+                <img src={img1} alt="" />
+                 One<span>Billion</span> </div>
             <div className="clothing" onClick={()=>navigate("/products")}> Clothing </div>
             <div className="accessories" onClick={()=>navigate("/products")}> Accessories </div>
             <div className="footwear" onClick={()=>navigate("/products")}> Footwear </div>
