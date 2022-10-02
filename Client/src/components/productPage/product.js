@@ -17,10 +17,8 @@ const Product = () => {
     return (
         <div>
         <div className='prodContainer'>
-            
                 <ProductPic path={product.path}/>
-                <ProductInfo name={product.name} price={product.price} description={product.description} />
-            
+                <ProductInfo name={product.name} price={product.price} description={product.description} />    
         </div>
             <Reviews />
             <Recommendations />

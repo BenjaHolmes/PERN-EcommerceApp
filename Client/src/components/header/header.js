@@ -1,22 +1,24 @@
 import React from 'react';
 import './header.css'
 import img1 from '../../imgs/BillionLogo.png';
+import img2 from '../../imgs/cartIcon.png'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ShoppingCart from './shoppingCart/shoppingCart';
 import LogIn from '../login/login.js';
 import Register from '../register/register';
-import { useNavigate } from 'react-router-dom';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 const Header = () => {
-    const [toggleCart, setToggleCart] = useState('hidden');
+    const [toggleCart, setToggleCart] = useState('false');
     const [toggleLogIn, setToggleLogIn] = useState('hidden');
     const [toggleReg, setToggleReg] = useState('hidden');
     
     function cartToggle() {
-        if (toggleCart === 'hidden') {
-            setToggleCart('show');
+        if (toggleCart === 'false') {
+            setToggleCart('true');
         } else {
-            setToggleCart('hidden');
+            setToggleCart('false');
         }
     }
     function logToggle() {
@@ -35,27 +37,29 @@ const Header = () => {
             setToggleReg('hidden');    
         }
     }
+
     const navigate = useNavigate();
+   
+
     return (
         <div>
         <div className='header-container'>
             <div className="logo" onClick={()=>navigate("/")}>
                 <img src={img1} alt="" />
                  One<span>Billion</span> </div>
-            <div className="clothing" onClick={()=>navigate("/products")}> Clothing </div>
-            <div className="accessories" onClick={()=>navigate("/products")}> Accessories </div>
-            <div className="footwear" onClick={()=>navigate("/products")}> Footwear </div>
-            <div className='Log In' onClick={logToggle}> Log In </div>
-            <div className="cartButton"> 
-                <div class="buttonContainer" onClick={cartToggle}>
-                    <div className="bar1"></div>
-                    <div className="bar2"></div>
-                    <div className="bar3"></div>
-                </div>
+            <div className="midButtons">
+                <div className="clothing" onClick={()=>navigate("/products")}> Clothing </div>
+                <div className="accessories" onClick={()=>navigate("/products")}> Accessories </div>
+                <div className="footwear" onClick={()=>navigate("/products")}> Footwear </div>
+                <div className='Log In' onClick={logToggle}> Account </div>
             </div>
-            
+            <OutsideClickHandler onOutsideClick={() => {setToggleCart(false);}}>
+                <div className="cartButton" onClick={cartToggle}> 
+                    <img src={img2} alt='' />   
+                </div>
+            </OutsideClickHandler>
         </div>
-        {toggleCart === 'show' ? <ShoppingCart /> : '' }
+        {toggleCart === 'true' ? <ShoppingCart toggleCart={cartToggle}/> : '' }
         {toggleLogIn === 'show' ? <LogIn toggleLog={logToggle} toggleReg={regToggle} /> : '' }
         {toggleReg === 'show' ? <Register toggleLog={logToggle} toggleReg={regToggle} /> : ''}
         </div>
