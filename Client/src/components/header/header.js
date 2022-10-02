@@ -39,7 +39,6 @@ const Header = () => {
     }
 
     const navigate = useNavigate();
-   
 
     return (
         <div>
@@ -53,13 +52,13 @@ const Header = () => {
                 <div className="footwear" onClick={()=>navigate("/products")}> Footwear </div>
                 <div className='Log In' onClick={logToggle}> Account </div>
             </div>
+        </div>
             <OutsideClickHandler onOutsideClick={() => {setToggleCart(false);}}>
                 <div className="cartButton" onClick={cartToggle}> 
                     <img src={img2} alt='' />   
                 </div>
+                {toggleCart === 'true' ? <ShoppingCart toggleCart={cartToggle}/> : '' }
             </OutsideClickHandler>
-        </div>
-        {toggleCart === 'true' ? <ShoppingCart toggleCart={cartToggle}/> : '' }
         {toggleLogIn === 'show' ? <LogIn toggleLog={logToggle} toggleReg={regToggle} /> : '' }
         {toggleReg === 'show' ? <Register toggleLog={logToggle} toggleReg={regToggle} /> : ''}
         </div>

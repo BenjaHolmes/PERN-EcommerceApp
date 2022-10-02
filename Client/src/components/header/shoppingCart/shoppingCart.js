@@ -2,13 +2,12 @@ import React from 'react';
 import './shoppingCart.css';
 import CartItem from './cartItem';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 
 const ShoppingCart = (props) => {
     const navigate = useNavigate();
     
-
     return (
             <motion.div  
                 animate={{ x: 0}} 
