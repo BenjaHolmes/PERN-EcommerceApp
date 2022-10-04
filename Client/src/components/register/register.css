@@ -8,7 +8,8 @@
     flex-direction: column;
     position: absolute;
     width: 50%;
-    height: 53%;
+    max-width: 650px;
+    height: 65%;
     border-radius: 5%;
     background-color: rgb(214, 217, 218);
     border: 1px solid black;
@@ -41,4 +42,7 @@
     top: -5px;
     right: 25px;
     cursor: pointer;
+}
+.regCard form p span {
+    color: red;
 }

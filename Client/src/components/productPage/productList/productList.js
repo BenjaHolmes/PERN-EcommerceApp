@@ -8,9 +8,13 @@ import axios from 'axios';
 const ProductList = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:4000/api/products").then(function(response) {
-            setProducts(response.data);
-        })   
+        async function fetchProducts() {
+        const response = await fetch('http://localhost:4000/api/product');
+        const data = await response.json();
+        console.log(data);
+        setProducts(data);
+    }   
+    fetchProducts();
     }
     , []);
     return (

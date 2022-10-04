@@ -32,6 +32,12 @@ CREATE TABLE cart (
   created_at DATE
 );
 
+-- ALTER TABLE cart
+-- ADD COLUMN user_email VARCHAR(255)
+-- ALTER TABLE cart
+--  ADD CONSTRAINT fk_user_cart
+--  FOREIGN KEY (user_email) REFERENCES users(email);
+
 CREATE TABLE cart_item (
   product_id BIGSERIAL REFERENCES products(id),
   cart_id BIGSERIAL REFERENCES cart(id),

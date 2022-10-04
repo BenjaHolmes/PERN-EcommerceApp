@@ -6,7 +6,9 @@
     float: left;
     margin-left: 5%;
     margin-top: 1%;
-    text-decoration: underline;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 5px;
+    font-size: 2rem;
 }
 .productList {
     margin-left: 5px;

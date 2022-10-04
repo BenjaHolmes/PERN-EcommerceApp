@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 
-const ShoppingCart = (props) => {
+const ShoppingCart = () => {
     const navigate = useNavigate();
     
     return (
@@ -15,13 +15,12 @@ const ShoppingCart = (props) => {
                 initial={{ x: 350 }}
                 className='shoppingCart'
                 > 
-                <div className="buttons">
-                    <p onClick = {() => navigate('/account')}> Visit Your Account </p>
-                </div>
-                <h1> Shopping Cart </h1>
-                <div className="checkout">
-                    <p> Price Total : £ 0 </p>
-                    <p onClick={() => navigate('/account/checkout')}> Checkout </p>
+                <div className="cartTop">
+                    <h1> Your Cart </h1>
+                    <div className="checkout">
+                        <p> Price Total : £ 0 </p>
+                        <p onClick={() => navigate('/account/checkout')}> Checkout </p>
+                    </div>
                 </div>
                 <div className="itemlist">
                     <CartItem />

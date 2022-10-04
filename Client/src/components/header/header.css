@@ -61,7 +61,6 @@
   .midButtons {
     display: flex;
     flex-wrap: wrap;
-    margin-left: 60px;
     font-size: 1.1rem;
     width: 80%;
     font-family: 'Bebas Neue', cursive;

@@ -8,6 +8,7 @@
     flex-direction: column;
     position: absolute;
     width: 50%;
+    max-width: 650px;
     height: 40%;
     border-radius: 5%;
     background-color: rgb(214, 217, 218);
