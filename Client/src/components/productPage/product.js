@@ -20,7 +20,7 @@ const Product = () => {
                 <ProductPic path={product.path}/>
                 <ProductInfo name={product.name} price={product.price} description={product.description} />    
         </div>
-            <Reviews />
+            <Reviews id={product.id}/>
             <Recommendations />
         </div>
     );

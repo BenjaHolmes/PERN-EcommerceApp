@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
+const reviewRoutes = require('./routes/reviewRoutes');
 
 app.use(cors());
 app.use(express.json());
@@ -24,6 +25,7 @@ app.use(express.json());
 
 app.use('/api/product', productRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/reviews', reviewRoutes);
 
 
 

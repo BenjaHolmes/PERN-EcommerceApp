@@ -1,44 +1,36 @@
 import React from 'react';
 import './reviews.css';
+import { useState, useEffect } from 'react';
+import ReviewCard from './reviewCard.js';
 
-const Reviews = () => {
+const Reviews = (props) => {
+    const [reviews, setReviews] = useState([]);
+    const id = props.id
+    useEffect(() => {
+        async function fetchReviews() {
+        const response = await fetch(`http://localhost:4000/api/reviews/${id}`, {
+            method: 'GET',
+            headers: { "Content-Type": "application/json"},
+            mode: 'cors'
+        });
+        const data = await response.json();
+        console.log(data);
+        setReviews(data);
+    }   
+    fetchReviews();
+    }
+    , [id]);
+
+
     return (
         <div className='reviewContainer'>
             <h2> Customer Reviews </h2>
-            <div className='reviewBox'>
-                <div className="review">
-                    <h4> Very Comfortable <span> by Ben H </span> </h4>
-                    <p className='stars'>&#9733; &#9733; &#9733; &#9733; &#9733;</p>
-                    <p>These are super comfortable and I am very pleased with them. 
-                        Definitely having another pair in a different colour. 
-                        I am a size 5, however after reading reviews I went up a size. 
-                        The size 6 fits perfectly so maybe something to consider.</p> 
+                <div className='reviewBox'>
+                    { reviews != null ? reviews.map((review, index) => 
+                    <ReviewCard key={index} title={review.title}
+                    stars={review.star_rating} body={review.body}
+                    />) : ''}
                 </div>
-                <div className="review">
-                    <h4> Very Comfortable <span> by Ben H </span> </h4>
-                    <p className='stars'>&#9733; &#9733; &#9733; &#9733; &#9733;</p>
-                    <p>These are super comfortable and I am very pleased with them. 
-                        Definitely having another pair in a different colour. 
-                        I am a size 5, however after reading reviews I went up a size. 
-                        The size 6 fits perfectly so maybe something to consider.</p> 
-                </div>
-                <div className="review">
-                    <h4> Very Comfortable <span> by Ben H </span> </h4>
-                    <p className='stars'>&#9733; &#9733; &#9733; &#9733; &#9733;</p>
-                    <p>These are super comfortable and I am very pleased with them. 
-                        Definitely having another pair in a different colour. 
-                        I am a size 5, however after reading reviews I went up a size. 
-                        The size 6 fits perfectly so maybe something to consider.</p> 
-                </div>
-                <div className="review">
-                    <h4> Very Comfortable <span> by Ben H </span> </h4>
-                    <p className='stars'>&#9733; &#9733; &#9733; &#9733; &#9733;</p>
-                    <p>These are super comfortable and I am very pleased with them. 
-                        Definitely having another pair in a different colour. 
-                        I am a size 5, however after reading reviews I went up a size. 
-                        The size 6 fits perfectly so maybe something to consider.</p>
-                </div>
-            </div>
         </div>
     );
 }

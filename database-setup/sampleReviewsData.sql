@@ -1,547 +1,546 @@
 --Prod1
 
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (9, 1, 
 'Quality product all the way, amazing colour and designer label I love Lacoste shirts and V necks,
  highly recommended. Also, outstanding packaging and customer service.' 
-, 5);
-
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+, 5, 'Fantastic Top');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (10, 1, 
-'' 
-, 4);
-
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+'Really nice top, was far to big, I ordered a size up, should have gone true.
+Will reorder in my size, good quality.' 
+, 4, 'PERFECT!');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (11, 1, 
-'' 
-, 3);
-
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+'Really pleased with this top. Got it in the classic Lacoste green. Looks great on. Feels quality. Only paid £40 so a bargain!' 
+, 4, 'The Genuine Article');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (12, 1, 
-'' 
-, 5);
+'Great top maybe ordered one size too big ..my fault would highly recommend....' 
+, 5, 'Great Value!!!');
 
 --Prod2
 
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (13, 2, 
-'' 
-, 2);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+'Love this shirt and it’s just as expected. Top quality, delivery was very quick and I’d recommend
+ to anyone!' 
+, 4, 'Just Buy It');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (14, 2, 
-'' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+'fabric quality and cut is good' 
+, 5, 'Fabric is Good');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (15, 2, 
-'' 
-, 3);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+'This shirt fitted perfectly however after being washed once at 30 degrees it shrunk considerably.' 
+, 1, 'Shrunk');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (16, 2, 
-'' 
-, 3);
+'Used for holiday in Europe in July and perfect for climate and styling' 
+, 3, 'A Quality Product as Usual');
 
 --Prod3
 
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (17, 3, 
-'' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+'The only problem was the packaging, other than that everything was good' 
+, 5, ' Good service');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (18, 3, 
-'' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+'Happy with it' 
+, 5, 'Fits Well');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (19, 3, 
-'' 
-, 4);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+'Good fit' 
+, 4, 'Love It!');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (20, 3, 
 '' 
-, 5);
+, 5, '');
 
 --Prod4
 
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (21, 4, 
-'' 
-, 2);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+'Wrong size sent' 
+, 2, 'Wrong size sent');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (22, 4, 
 '' 
-, 1);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+, 1, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (23, 4, 
 '' 
-, 3);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+, 3, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (24, 4, 
 '' 
-, 2);
+, 2, '');
 
 --prod5
 
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (25, 5, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (26, 5, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+, 3, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (27, 5, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (28, 5, 
 '' 
-, 5);
+, 5, '');
 
 --prod6
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 6, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (29, 6, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 6, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (30, 6, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 6, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (31, 6, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 6, 
+, 2, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (32, 6, 
 '' 
-, 5);
+, 5, '');
 
 --prod7
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 7, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (33, 7, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 7, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (34, 7, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 7, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (35, 7, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 7, 
+, 4, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (36, 7, 
 '' 
-, 5);
+, 5, '');
 
 --prod8
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 8, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (37, 8, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 8, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (38, 8, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 8, 
+, 2, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (39, 8, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 8, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (40, 8, 
 '' 
-, 5);
+, 3, '');
 
 --prod9
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 9, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (41, 9, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 9, 
+, 1, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (42, 9, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 9, 
+, 1, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (43, 9, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 9, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (44, 9, 
 '' 
-, 5);
+, 5, '');
 
 --prod10
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 10, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (45, 10, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 10, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (46, 10, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 10, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (47, 10, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 10, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (48, 10, 
 '' 
-, 5);
+, 5, '');
 
 --prod11
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 11, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (49, 11, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 11, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (50, 11, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 11, 
+, 3, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (51, 11, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 11, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (52, 11, 
 '' 
-, 5);
+, 3, '');
 
 --prod12
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 12, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (53, 12, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 12, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (54, 12, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 12, 
+, 3, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (55, 12, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 12, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (56, 12, 
 '' 
-, 5);
+, 4, '');
 
 --prod13
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 13, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (57, 13, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 13, 
+, 1, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (58, 13, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 13, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (59, 13, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 13, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (60, 13, 
 '' 
-, 5);
+, 4, '');
 
 --prod14
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (61, 14, 
+'' 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (62, 14, 
+'' 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (9, 14, 
+'' 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (10, 14, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 14, 
-'' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 14, 
-'' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 14, 
-'' 
-, 5);
+, 5, '');
 
 --prod15 
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 15, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (11, 15, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 15, 
+, 4, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (12, 15, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 15, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (13, 15, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 15, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (14, 15, 
 '' 
-, 5);
+, 2, '');
 
 --prod16
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 16, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (15, 16, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 16, 
+, 3, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (16, 16, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 16, 
+, 3, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (17, 16, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 16, 
+, 3, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (18, 16, 
 '' 
-, 5);
+, 3, '');
 
 --prod17
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 17, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (19, 17, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 17, 
+, 4, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (20, 17, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 17, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (21, 17, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 17, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (22, 17, 
 '' 
-, 5);
+, 4, '');
 
 --prod18
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 18, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (23, 18, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 18, 
+, 3, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (24, 18, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 18, 
+, 2, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (25, 18, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 18, 
+, 2, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (26, 18, 
 '' 
-, 5);
+, 1, '');
 
 --prod19
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 19, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (27, 19, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 19, 
+, 4, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (28, 19, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 19, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (29, 19, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 19, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (30, 19, 
 '' 
-, 5);
+, 2, '');
 
 --prod20
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 20, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (31, 20, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 20, 
+, 3, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (32, 20, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 20, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (33, 20, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 20, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (34, 20, 
 '' 
-, 5);
+, 1, '');
 
 --prod21
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 21, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (35, 21, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 21, 
+, 4, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (36, 21, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 21, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (37, 21, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 21, 
+, 3, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (38, 21, 
 '' 
-, 5);
+, 1, '');
 
 --prod22
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 22, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (39, 22, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 22, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (40, 22, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 22, 
+, 2, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (41, 22, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 22, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (42, 22, 
 '' 
-, 5);
+, 4, '');
 
 --prod23
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 23, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (43, 23, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 23, 
+, 3, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (44, 23, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 23, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (45, 23, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 23, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (46, 23, 
 '' 
-, 5);
+, 1, '');
 
 --prod24
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 24, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (47, 24, 
 '' 
-, 5);INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 24, 
+, 2, '');INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (48, 24, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 24, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (49, 24, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 24, 
+, 2, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (50, 24, 
 '' 
-, 5);
+, 5, '');
 
 --prod25
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 25, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (51, 25, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 25, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (52, 25, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 25, 
+, 4, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (53, 25, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 25, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (54, 25, 
 '' 
-, 5);
+, 3, '');
 
 --prod26
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 26, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (55, 26, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 26, 
+, 1, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (56, 26, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 26, 
+, 2, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (57, 26, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 26, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (58, 26, 
 '' 
-, 5);
+, 5, '');
 
 --prod27
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 27, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (59, 27, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 27, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (60, 27, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 27, 
+, 2, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (61, 27, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 27, 
+, 3, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (62, 27, 
 '' 
-, 5);
+, 5, '');
 
 --prod28
-INSERT INTO reviews (user_id, product_id, body, star_rating)
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (9, 28, 
+'' 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
 VALUES (10, 28, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 28, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (11, 28, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 28, 
+, 4, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (12, 28, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 28, 
-'' 
-, 5);
+, 5, '');
 
 --prod29
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 29, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (13, 29, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 29, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (14, 29, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 29, 
+, 1, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (15, 29, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 29, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (16, 29, 
 '' 
-, 5);
+, 2, '');
 
 --prod30
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 30, 
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (17, 30, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 30, 
+, 1, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (18, 30, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 30, 
+, 3, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (19, 30, 
 '' 
-, 5);
-INSERT INTO reviews (user_id, product_id, body, star_rating)
-VALUES (10, 30, 
+, 5, '');
+INSERT INTO reviews (user_id, product_id, body, star_rating, title)
+VALUES (20, 30, 
 '' 
-, 5);
+, 4), '';

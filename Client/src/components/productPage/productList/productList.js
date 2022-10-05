@@ -2,7 +2,7 @@ import React from 'react';
 import './productList.css';
 import ProductCard from '../productCard/productCard.js';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+
 
 
 const ProductList = () => {
@@ -11,7 +11,7 @@ const ProductList = () => {
         async function fetchProducts() {
         const response = await fetch('http://localhost:4000/api/product');
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
         setProducts(data);
     }   
     fetchProducts();
