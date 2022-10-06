@@ -3,7 +3,7 @@ import './productInfo.css';
 
 const ProductInfo = (props) => {
     return (
-        <div>
+        <div className='prodBox'>
         <div className='infoContainer'>
             <h1> {props.name} </h1>
         </div>

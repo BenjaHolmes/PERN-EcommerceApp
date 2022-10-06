@@ -24,13 +24,17 @@ const Reviews = (props) => {
 
     return (
         <div className='reviewContainer'>
-            <h2> Customer Reviews </h2>
+            <div className="topbar">
+                <h2> Customer Reviews </h2>
+                <div className='tbar'></div>
+            </div>
                 <div className='reviewBox'>
                     { reviews != null ? reviews.map((review, index) => 
                     <ReviewCard key={index} title={review.title}
                     stars={review.star_rating} body={review.body}
                     />) : ''}
                 </div>
+            <div className="bbar"></div>
         </div>
     );
 }

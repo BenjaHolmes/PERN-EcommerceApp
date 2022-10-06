@@ -2,7 +2,7 @@ import React from 'react';
 import img1 from '../../../imgs/display2.jpg';
 // import img2 from '../../imgs/display3.jpg';
 // import img3 from '../../imgs/display4.jpg';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './seasonalDisplay.css';
 
 const SeasonalDisplay = () => {

@@ -44,3 +44,22 @@ h4 span {
 .review p {
     padding: 5px;
 }
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tbar {
+    width: 73%;
+    margin-top: -20px;
+    height: 5px;
+    background-color:rgb(214, 217, 218); ;
+}
+.bbar {
+    width: 100%;
+    margin-top: 20px;
+    height: 5px;
+    background-color:rgb(214, 217, 218);
+    margin-bottom: 10px;
+}

@@ -13,3 +13,9 @@
 .productList {
     margin-left: 5px;
 }
+.tbar2 {
+    width: 71%;
+    margin-top: 8px;
+    height: 5px;
+    background-color:rgb(0, 0, 0); ;
+}

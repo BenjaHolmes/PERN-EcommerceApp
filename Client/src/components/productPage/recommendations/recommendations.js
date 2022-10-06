@@ -10,7 +10,9 @@ const Recommendations = () => {
    
     return (
         <div className='recommendationsContainer'>
-            <h2> Discover New Items </h2>  
+
+                <h2> Discover New Items </h2> 
+
             <div className="productList">
                 <ProductCard />      
                 <ProductCard /> 
