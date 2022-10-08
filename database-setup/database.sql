@@ -29,7 +29,8 @@ CREATE TABLE product_category (
 CREATE TABLE cart (
   id BIGSERIAL PRIMARY KEY,
   user_id BIGSERIAL REFERENCES users(id),
-  created_at DATE
+  created_at DATE,
+  is_current_cart BOOLEAN
 );
 
 -- ALTER TABLE cart

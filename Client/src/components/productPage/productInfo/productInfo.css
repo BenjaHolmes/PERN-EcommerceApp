@@ -1,14 +1,16 @@
 .infoContainer {
-   margin-top: 10%;
+
    margin-left: 15px;
    font-family: 'Bebas Neue', cursive;
-   letter-spacing: 10px;
+   letter-spacing: 5px;
    width: 100%;
 }
 .infoContainer h1 {
     max-width: 100%;
     max-height: 100%;
+    margin-top: 4%;
     margin-left: 2%;
+    font-size: 3rem;
 }
 
 .infoContainer h2 {

@@ -32,7 +32,7 @@ const Reviews = (props) => {
                     { reviews != null ? reviews.map((review, index) => 
                     <ReviewCard key={index} title={review.title}
                     stars={review.star_rating} body={review.body}
-                    />) : ''}
+                    />) : <p> No Reviews For This Product Yet </p>}
                 </div>
             <div className="bbar"></div>
         </div>
