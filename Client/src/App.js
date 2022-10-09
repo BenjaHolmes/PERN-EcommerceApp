@@ -22,7 +22,7 @@ function App() {
           <Route path='/products' element={<><Header /> <ProductPage /> <Footer /> </>} />
           <Route path='/products/:id' element={<><Header /> <Product /> <Footer /> </>} />
           <Route path='/account' element={<><Header /> <OrderHistory /> <Footer /> </>} />
-          <Route path='/account/checkout' element={<><Header /> <Checkout /> <Footer /> </>} />
+          <Route path='/account/checkout'  element={<><Header /> <Checkout /> <Footer /> </>} />
         </Routes>
       </BrowserRouter>
       

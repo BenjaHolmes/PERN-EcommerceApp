@@ -9,7 +9,7 @@ import './product.css'
 
 const Product = () => {
     const location = useLocation();
-    const [product] = useState(location.state);
+    const [product, setProduct] = useState(location.state);
     useEffect(() => {
         window.scrollTo(0, 0)
     }, []);
@@ -21,7 +21,7 @@ const Product = () => {
                 <ProductInfo name={product.name} price={product.price} description={product.description} />    
         </div>
             <Reviews id={product.id}/>
-            <Recommendations />
+            <Recommendations setProduct={setProduct} />
         </div>
     );
 }
