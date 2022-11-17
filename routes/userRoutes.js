@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const pool = require('../db');
+const pool = require('../config/db');
 const router = Router();
 const bcrypt = require('bcrypt');
 
@@ -25,6 +25,13 @@ const addUser = async (req, res) => {
     })
 };
 
+const getUser = async (req, res) => {
+    console.log(req.body);
+}
+
+
+
 router.post('/register', addUser);
+router.get('/', getUser);
 
 module.exports = router;

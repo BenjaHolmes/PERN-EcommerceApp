@@ -23,6 +23,7 @@ const ProductList = () => {
                 <ProductCard key={index} name={body.name}
                  description={body.description} price={body.price}
                  path={body.picture_path} id={body.id}/>) : ''} 
+            
         </div>
     );
 }
