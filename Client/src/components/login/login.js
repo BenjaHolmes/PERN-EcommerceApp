@@ -1,55 +1,61 @@
 import React from 'react';
 import './login.css';
-import OutsideClickHandler from 'react-outside-click-handler';
-import { useState } from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { logEmailSelector, 
+    logPwSelector,
+    updateLogInEmail, 
+    updateLogInPassword, 
+    logInUser, 
+    getUser, 
+    
+} from '../../slices/authSlice';
+import { menuSelector } from '../../slices/accountPageSlice';
+import { changeMenu } from '../../slices/accountPageSlice';
+import { useEffect } from 'react';
+import Register from '../register/register';
 
-const LogIn = (props) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    // const [errorMsg, setErrorMsg] = useState('');
+const LogIn = () => {
+    const dispatch = useDispatch();
+    const logEmail = useSelector(logEmailSelector);
+    const logPw = useSelector(logPwSelector);    
+    const menu = useSelector(menuSelector);
 
-    const attemptLogin = async (e) => {
-        //Prevent default stops the page from reloading
-        e.preventDefault();
-         const response = axios.post("http://localhost:4000/auth/login", {
-            email: email,
-            password: password
-        }, { withCredentials: true });
-        return (await response).data;
-        
+    const attemptLogin = async () => {
+        const data = {
+            email: logEmail,
+            password: logPw
+        }
+        dispatch(logInUser(data)).then(() => dispatch(getUser()));
         }
         
-    
+    useEffect(() => {
+        console.log(menu);
+    }, [menu]);
 
     return (
-        <OutsideClickHandler onOutsideClick={props.toggleLog}>
+        
             <div className='logInContainer'>
+                { menu === 'Log In' ?
                 <div className="logInCard">
-                    <h5 onClick={props.toggleLog}> X </h5>
                     <h1 className='logTitle'> Log In </h1>
-                    <form onSubmit={attemptLogin}>
+                    
                         <input type='text' 
                         placeholder='Email Address' 
                         id='email'
                         autoComplete='off'
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
+                        onChange={e => dispatch(updateLogInEmail(e.target.value))}
+                        value={logEmail}
                         required
                         ></input>
-                        <input type='password' 
-                        placeholder="Password" 
-                        id='password'
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
-                        required
-                        ></input>
-                        <input type="submit"></input>
-                    </form>
-                    <h3 onClick={props.toggleReg}> Not Registered? Click Here </h3>
+                        <input placeholder='Password' type='password' autoComplete='off' 
+                        onChange={e => dispatch(updateLogInPassword(e.target.value))} />
+                        <button className='submitBtn' onClick={attemptLogin}> Submit </button> 
+                    
+                    <h3 onClick={() => dispatch(changeMenu('Register'))}> Not Registered? Click Here </h3>
                 </div>
+                : <Register /> }
             </div>
-        </OutsideClickHandler>
+            
     );
 }
 

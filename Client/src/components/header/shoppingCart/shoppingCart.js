@@ -2,11 +2,18 @@ import React from 'react';
 import './shoppingCart.css';
 import CartItem from './cartItem';
 import { useNavigate } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getUser } from '../../../slices/authSlice';
 
 
 const ShoppingCart = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getUser());
+    }, [dispatch])
     
     return (
             <div>

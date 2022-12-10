@@ -8,37 +8,18 @@ import ShoppingCart from './shoppingCart/shoppingCart';
 import LogIn from '../login/login.js';
 import Register from '../register/register';
 import OutsideClickHandler from 'react-outside-click-handler';
+import {useDispatch, useSelector} from 'react-redux';
+import { manageAuthMenu, menuSelector } from '../../slices/authSlice';
 
 const Header = () => {
-    const [toggleCart, setToggleCart] = useState('false');
-    const [toggleLogIn, setToggleLogIn] = useState('hidden');
-    const [toggleReg, setToggleReg] = useState('hidden');
-    
-    function cartToggle() {
-        if (toggleCart === 'false') {
-            setToggleCart('true');
-        } else {
-            setToggleCart('false');
-        }
-    }
-    function logToggle() {
-        if (toggleLogIn === 'hidden') {
-            setToggleLogIn('show');
-            setToggleReg('hidden')
-        } else {
-            setToggleLogIn('hidden');    
-        }
-    }
-    function regToggle() {
-        if (toggleReg === 'hidden') {
-            setToggleReg('show');
-            setToggleLogIn('hidden');
-        } else {
-            setToggleReg('hidden');    
-        }
-    }
+    const dispatch = useDispatch();
+    const authMenu = useSelector(menuSelector);
 
     const navigate = useNavigate();
+
+    const handleOutsideClick = () => {
+        dispatch(manageAuthMenu('Closed'))
+    }
 
     return (
         <div>
@@ -50,17 +31,18 @@ const Header = () => {
                 <div className="clothing" onClick={()=>navigate("/products")}> Clothing </div>
                 <div className="accessories" onClick={()=>navigate("/products")}> Accessories </div>
                 <div className="footwear" onClick={()=>navigate("/products")}> Footwear </div>
-                <div className='Log In' onClick={logToggle}> Account </div>
+                <div className='Log In' onClick={() => navigate("/account")}> Account </div>
             </div>
         </div>
-            <OutsideClickHandler onOutsideClick={() => {setToggleCart(false);}}>
-                <div className="cartButton" onClick={cartToggle}> 
+            {/* <OutsideClickHandler> */}
+                {/* Needs on Click to open put back */}
+                <div className="cartButton"> 
                     <img src={img2} alt='' />   
                 </div>
-                {toggleCart === 'true' ? <ShoppingCart toggleCart={cartToggle}/> : '' }
-            </OutsideClickHandler>
-        {toggleLogIn === 'show' ? <LogIn toggleLog={logToggle} toggleReg={regToggle} /> : '' }
-        {toggleReg === 'show' ? <Register toggleLog={logToggle} toggleReg={regToggle} /> : ''}
+                {/* {toggleCart === 'true' ? <ShoppingCart toggleCart={cartToggle}/> : '' } */}
+            {/* </OutsideClickHandler> */}
+        {authMenu === 'Log In' ? <LogIn handleOutsideClick={handleOutsideClick}/> : '' }
+        {authMenu === 'Register' ? <Register /> : ''}
         </div>
     );
 }

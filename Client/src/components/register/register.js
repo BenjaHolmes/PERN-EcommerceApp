@@ -1,72 +1,75 @@
 import React from 'react';
 import './register.css';
-import OutsideClickHandler from 'react-outside-click-handler';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+    registerFnameSelector,
+    registerLnameSelector,
+    registerEmailSelector,
+    registerPwordSelector,
+    registerConfirmPwordSelector,
+    updateRegisterFname, 
+    updateRegisterLname,
+    updateRegisterEmail,
+    updateRegisterPword,
+    updateRegisterConfirmPword,
+    registerUser 
+} from '../../slices/authSlice';
+import { changeMenu } from '../../slices/accountPageSlice';
 
 
 
 
 const Register = (props) => {
-    const [first_name, setFirst_Name] = useState('');
-    const [last_name, setLast_Name] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmpassword, setConfirmPassword] = useState('');
-    const [passwordMatch, setPasswordMatch] = useState(false);
+    const dispatch = useDispatch();
+
+    const fName = useSelector(registerFnameSelector);
+    const lName = useSelector(registerLnameSelector);
+    const email = useSelector(registerEmailSelector);
+    const pword = useSelector(registerPwordSelector);
+    const confirmPword = useSelector(registerConfirmPwordSelector);
 
     const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const body = { first_name, last_name, email, password }
-        if (passwordMatch) {
-            await fetch("http://localhost:4000/api/user/register", {
-                method: 'POST',
-                headers: { "Content-Type": "application/json"},
-                mode: 'cors',
-                body: JSON.stringify(body)
-            }).then((res) => {
-                console.log('New Account Registered');
-                props.toggleReg();
-                navigate(`/account`, {
-                    state: {
-                        first_name: first_name,
-                        last_name: last_name
-                    }});
-            });
-        } else {
-            alert('Passwords do not Match, Please Try Again');
+    const handleRegister = () => {
+        const data = {
+            fname: fName,
+            lname: lName,
+            email: email,
+            password: pword
         }
+        if (pword === confirmPword) {
+            dispatch(registerUser(data))
+        } else {
+            alert('Passwords do not Match, please try Again!')
+        }
+        
     }
 
-    useEffect(() => {
-        if (password === confirmpassword) {
-            setPasswordMatch(true);
-        } else {
-            setPasswordMatch(false);
-        }
-    }, [password, confirmpassword]);
+    
 
     return (
-        <OutsideClickHandler onOutsideClick={props.toggleReg}>
-            <div className='regContainer'>
-                <div className="regCard">
-                    <h5 onClick={props.toggleReg}> X </h5>
+            <div className='logInContainer'>
+                <div className="logInCard">
                     <h1 className='regTitle'> Register a New Account </h1>
-                    <form onSubmit={handleSubmit} >
-                        <input onChange={(e) => setFirst_Name(e.target.value)} id="firstname" value={first_name} placeholder='First Name'></input>
-                        <input onChange={(e) => setLast_Name(e.target.value)} id="lastname" value={last_name} placeholder='Last Name'></input>
-                        <input onChange={(e) => setEmail(e.target.value)} id="emailaddress" value={email} placeholder='Email Address'></input>
-                        <input onChange={(e) => setPassword(e.target.value)} id="password" value={password} placeholder="Password" type='password'></input>
-                        <input onChange={(e) => setConfirmPassword(e.target.value)} id="confirmpassword" value={confirmpassword} placeholder="Confirm Password" type='password'></input>
-                        { passwordMatch === false ? <p> <span> X </span> Passwords Must Match </p> : <p></p> }
-                        <input type="submit" ></input>
-                    </form>
-                    <h3 onClick={props.toggleLog}> Already Registered? Log In Here </h3>
+                    
+                        <input onChange={(e) => dispatch(updateRegisterFname(e.target.value))} 
+                        id="firstname" value={fName} placeholder='First Name'></input>
+                        <input onChange={(e) => dispatch(updateRegisterLname(e.target.value))} 
+                        id="lastname" value={lName} placeholder='Last Name'></input>
+                        <input onChange={(e) => dispatch(updateRegisterEmail(e.target.value))} 
+                        id="emailaddress" value={email} placeholder='Email Address'></input>
+                        <input onChange={(e) => dispatch(updateRegisterPword(e.target.value))} 
+                        id="password" value={pword} placeholder="Password" type='password'></input>
+                        <input onChange={(e) => dispatch(updateRegisterConfirmPword(e.target.value))} 
+                        id="confirmpassword" value={confirmPword} placeholder="Confirm Password" type='password'></input>
+                        {/* { confirmPword.length > 0 && checkMatch === false ? <div> <p> <span> X </span> Passwords Must Match </p> <button disabled> Register</button> </div> : <button type="submit" > Register </button> } */}
+                       
+                        <button onClick={handleRegister} className='submitBtn' > Register </button>
+                    <h3 onClick={() => dispatch(changeMenu('Log In'))}> Already Registered? Log In Here </h3>
                 </div>
             </div>
-        </OutsideClickHandler>
     );
 }
 

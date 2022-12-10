@@ -26,7 +26,7 @@ const addUser = async (req, res) => {
 };
 
 const getUser = async (req, res) => {
-    console.log(req.body);
+    res.send(req.user);
 }
 
 

@@ -7,7 +7,7 @@
 }
 .reviewContainer h2 {
     float: left;
-    margin-left: 5%;
+    margin-right: 1%;
     margin-top: 1%;
     margin-bottom: 2%;
     font-family: 'Bebas Neue', cursive;
@@ -57,7 +57,9 @@ h4 span {
     background-color:rgb(214, 217, 218); ;
 }
 .bbar {
-    width: 100%;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 20px;
     height: 5px;
     background-color:rgb(214, 217, 218);
