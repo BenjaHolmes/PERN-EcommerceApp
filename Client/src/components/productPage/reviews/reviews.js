@@ -1,25 +1,19 @@
 import React from 'react';
 import './reviews.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import ReviewCard from './reviewCard.js';
+import { useDispatch,  useSelector } from 'react-redux'; 
+import { getReviews, reviewSelector } from '../../../slices/productsSlice';
 
 const Reviews = (props) => {
-    const [reviews, setReviews] = useState([]);
+    const dispatch = useDispatch();
+    const reviews = useSelector(reviewSelector);
     const id = props.id
+
     useEffect(() => {
-        async function fetchReviews() {
-        const response = await fetch(`http://localhost:4000/api/reviews/${id}`, {
-            method: 'GET',
-            headers: { "Content-Type": "application/json"},
-            mode: 'cors'
-        });
-        const data = await response.json();
-        console.log(data);
-        setReviews(data);
+    dispatch(getReviews(id))
     }   
-    fetchReviews();
-    }
-    , [id]);
+    , [dispatch, id]);
 
 
     return (

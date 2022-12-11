@@ -45,6 +45,7 @@ const initialState = {
         pword: '',
         confirmPword: '',
     },
+    registerMsg: '',
     user: {},
     isAuthenticated: false,
     error: null,
@@ -117,12 +118,15 @@ const authSlice = createSlice({
             state.error = null;
         },
         [registerUser.fulfilled]: (state, action) => {
-            state.user = action.payload;
+            state.registerMsg = action.payload;
             state.loading = false;
-            if (state.user.id) {
-                state.isAuthenticated = true;
-            }
-            state.register = {};
+            state.register = {
+                fname: '',
+                lname: '',
+                email: '',
+                pword: '',
+                confirmPword: ''
+            };
         },
         [registerUser.rejected]: (state, action) => {
             state.error = action.error.message;
@@ -159,5 +163,6 @@ export const authenticationSelector = state => state.auth.isAuthenticated;
 
 //Menu Selector
 export const menuSelector = state => state.auth.menuState;
+export const registerMsgSelector = state => state.auth.registerMsg;
 
 export default authSlice.reducer;

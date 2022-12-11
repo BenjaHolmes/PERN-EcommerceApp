@@ -1,22 +1,20 @@
 import React from 'react';
 import './productList.css';
 import ProductCard from '../productCard/productCard.js';
-import { useState, useEffect } from 'react';
-
+import { useEffect } from 'react';
+import { productsSelector, getProducts } from '../../../slices/productsSlice';
+import { useDispatch,  useSelector } from 'react-redux'; 
 
 
 const ProductList = () => {
-    const [products, setProducts] = useState([]);
+    const dispatch = useDispatch();
+    const products = useSelector(productsSelector);
+
     useEffect(() => {
-        async function fetchProducts() {
-        const response = await fetch('http://localhost:4000/api/product');
-        const data = await response.json();
-        //console.log(data);
-        setProducts(data);
-    }   
-    fetchProducts();
+        dispatch(getProducts());
     }
-    , []);
+    , [dispatch]);
+
     return (
         <div className='productList'>
             {products != null ? products.map((body, index) => 

@@ -1,20 +1,18 @@
 import React from 'react';
 import './recommendations.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import RecCard from './recCard';
-
+import { useDispatch,  useSelector } from 'react-redux'; 
+import { getRecommendations, recSelector } from '../../../slices/productsSlice';
 
 const Recommendations = (props) => {
-    const [recommendations, setRecommendations] = useState([])
+    const dispatch = useDispatch();
+    const recommendations = useSelector(recSelector);
+    
+    
     useEffect(() => {
-        async function fetchRecs() {
-            const response = await fetch('http://localhost:4000/api/product/discover');
-            const data = await response.json();
-            console.log(data);
-            setRecommendations(data);
-        }
-        fetchRecs();
-    }, []);
+        dispatch(getRecommendations());
+    }, [dispatch]);
 
     return (
         <div className='recommendationsContainer'>

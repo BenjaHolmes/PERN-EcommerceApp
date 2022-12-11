@@ -19,7 +19,7 @@ const addUser = async (req, res) => {
     , [first_name, last_name, email, hashedPassword], 
         (error, results) => {
             if (error) throw error;
-                res.status(201).send('User Account Added Succesfully');
+                res.status(201).send('Successfully Registered, You can now Log In');
                 // res.redirect('/')
             });
     })

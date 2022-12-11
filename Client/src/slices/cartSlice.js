@@ -1,9 +1,9 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 // import axios from 'axios';
 
-// export const getMembersOrders = createAsyncThunk({
+// export const getMembersOrders = createAsyncThunk(
 
-// })
+// )
 
 const initialState = {
     cartItems: [{
@@ -11,20 +11,22 @@ const initialState = {
         name: '',
         quantity: 0
     }],
-    priceTotal: 0
+    priceTotal: 0,
+    cartOpen: false
 }
 
 const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        
+        toggleCart (state) {
+            state.cartOpen = !state.cartOpen;
+        }
     }
 });
 
-// export const {  } = accountPageSlice.actions;
+export const { toggleCart } = cartSlice.actions;
 
-// export const themeSelector = state => state.header.lightThemeOn;
-
+export const cartMenuSelector = state => state.cart.cartOpen;
 
 export default cartSlice.reducer;

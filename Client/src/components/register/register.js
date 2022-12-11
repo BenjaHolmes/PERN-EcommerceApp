@@ -1,7 +1,5 @@
 import React from 'react';
 import './register.css';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     registerFnameSelector,
@@ -14,7 +12,8 @@ import {
     updateRegisterEmail,
     updateRegisterPword,
     updateRegisterConfirmPword,
-    registerUser 
+    registerUser, 
+    registerMsgSelector
 } from '../../slices/authSlice';
 import { changeMenu } from '../../slices/accountPageSlice';
 
@@ -29,8 +28,7 @@ const Register = (props) => {
     const email = useSelector(registerEmailSelector);
     const pword = useSelector(registerPwordSelector);
     const confirmPword = useSelector(registerConfirmPwordSelector);
-
-    const navigate = useNavigate();
+    const registerMsg = useSelector(registerMsgSelector);
 
     const handleRegister = () => {
         const data = {
@@ -40,7 +38,7 @@ const Register = (props) => {
             password: pword
         }
         if (pword === confirmPword) {
-            dispatch(registerUser(data))
+            dispatch(registerUser(data));
         } else {
             alert('Passwords do not Match, please try Again!')
         }
@@ -67,6 +65,11 @@ const Register = (props) => {
                         {/* { confirmPword.length > 0 && checkMatch === false ? <div> <p> <span> X </span> Passwords Must Match </p> <button disabled> Register</button> </div> : <button type="submit" > Register </button> } */}
                        
                         <button onClick={handleRegister} className='submitBtn' > Register </button>
+
+                        { registerMsg === 'Successfully Registered, You can now Log In' ? 
+                        <p> Your Registration was Successful, you can Now Log In. </p>    
+                        :
+                        ''}
                     <h3 onClick={() => dispatch(changeMenu('Log In'))}> Already Registered? Log In Here </h3>
                 </div>
             </div>

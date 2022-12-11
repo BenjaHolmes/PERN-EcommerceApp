@@ -1,13 +1,16 @@
-.shoppingCart {
+.cartContainer {
+    width: 40%;
     position: absolute;
+    z-index: 999;
+    right: 0px;
     height: 100%;
-    width: 45%;
-    z-index: 99;
-    right: 0;
     background-color: white;
     overflow-y: scroll;
     border: 1px solid gray;
+
 }
+
+
 .buttons {
     display: flex;
     justify-content: space-evenly;
