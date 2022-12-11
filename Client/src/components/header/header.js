@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartMenuSelector, toggleCart } from '../../slices/cartSlice';
 import ShoppingCart from './shoppingCart/shoppingCart';
-
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
     const dispatch = useDispatch();
@@ -29,7 +29,16 @@ const Header = () => {
         <div className="cartButton" onClick={() => {dispatch(toggleCart())}}> 
             <img src={img2} alt='' />   
         </div>
-        {cartMenuOpen === true ? <ShoppingCart /> : '' }
+        <AnimatePresence>
+        {cartMenuOpen === true ? 
+        <motion.div className='cartContainer' 
+        animate={{ x: 0}} initial={{ x:550}} 
+        transition={{type: 'tween', duration: 1}}
+        exit={{ x:550 }}>
+        <ShoppingCart /> 
+        </motion.div>
+        : '' }
+        </AnimatePresence>
         </div>
     );
 }

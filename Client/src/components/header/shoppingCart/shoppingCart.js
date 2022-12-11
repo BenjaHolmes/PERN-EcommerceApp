@@ -16,7 +16,7 @@ const ShoppingCart = () => {
     }, [dispatch])
     
     return (
-            <div className='cartContainer'>
+            <div>
                 <div className="cartTop">
                      <h1> Your Cart </h1>
                      <div className="checkout">
