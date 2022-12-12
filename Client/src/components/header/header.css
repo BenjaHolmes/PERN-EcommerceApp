@@ -16,21 +16,7 @@
 .header-container div {
     margin-top: 8px;
 }
-.cartButton::before {
-    content: '0';
-    position: absolute;
-    right: 45px;
-    top: 0px;   
-    width: 1.5em;
-    height: 1.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background-color: rgb(53, 52, 52);
-    color: white;
-    z-index: 999;
-}
+
 .button-container {
     margin-left: 20px;
 }
@@ -78,4 +64,18 @@
   }
   .cartButton {
     cursor: pointer;
+  }
+  .cartButton p {
+    position: absolute;
+    right: 48px;
+    top: 2px;
+    margin-top: 1px;
+    z-index: 999;
+    background-color: #333;
+    color: white;
+    font-size: 20px;
+    font-family: 'Bebas Neue', cursive;
+    border: 1px solid black;
+    padding: 1px 6px 1px 6px;
+    border-radius: 50%;
   }

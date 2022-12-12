@@ -6,26 +6,31 @@ import { logEmailSelector,
     updateLogInEmail, 
     updateLogInPassword, 
     logInUser, 
-    getUser, 
+    getUser,
+    userSelector, 
     
 } from '../../slices/authSlice';
 import { menuSelector } from '../../slices/accountPageSlice';
 import { changeMenu } from '../../slices/accountPageSlice';
 import Register from '../register/register';
+import { checkCart } from '../../slices/cartSlice';
 
 const LogIn = () => {
     const dispatch = useDispatch();
     const logEmail = useSelector(logEmailSelector);
     const logPw = useSelector(logPwSelector);
     const menu = useSelector(menuSelector);
+    const user = useSelector(userSelector);
+    
 
     const attemptLogin = async () => {
         const data = {
             email: logEmail,
             password: logPw
         }
-        dispatch(logInUser(data)).then(() => dispatch(getUser()))
+        dispatch(logInUser(data)).then(dispatch(checkCart(user.id)));
         }
+
 
     return (
         

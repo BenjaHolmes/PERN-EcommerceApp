@@ -13,6 +13,9 @@ const Header = () => {
     const navigate = useNavigate();
     const cartMenuOpen = useSelector(cartMenuSelector);
 
+    
+
+
     return (
         <div>
         <div className='header-container'>
@@ -26,7 +29,8 @@ const Header = () => {
                 <div className='Log In' onClick={() => navigate("/account")}> Account </div>
             </div>
         </div>
-        <div className="cartButton" onClick={() => {dispatch(toggleCart())}}> 
+        <div className="cartButton" onClick={() => {dispatch(toggleCart())}}>
+            <p className='cartQuantity'> 3 </p> 
             <img src={img2} alt='' />   
         </div>
         <AnimatePresence>

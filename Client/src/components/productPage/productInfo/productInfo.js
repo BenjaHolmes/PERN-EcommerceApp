@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateChosenSize, chosenProductSelector } from '../../../slices/productsSlice';
 import { userSelector } from '../../../slices/authSlice';
 import { useEffect } from 'react';
-import { getCartItems, addItemToCart, cartMsgSelector, clearCartMsg} from '../../../slices/cartSlice';
+import { getCartItems, addItemToCart, cartMsgSelector, clearCartMsg, addToTempCart} from '../../../slices/cartSlice';
 import { getUser } from '../../../slices/authSlice';
 
 const ProductInfo = (props) => {
@@ -34,7 +34,7 @@ const ProductInfo = (props) => {
             .then(() => dispatch(getCartItems(user.id)))
             .then(setTimeout(clearMsg , 10000));
         } else {
-            // add chosen product to state
+            dispatch(addToTempCart(chosenProduct));
         }
     }
 

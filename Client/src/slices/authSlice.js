@@ -82,18 +82,18 @@ const authSlice = createSlice({
         }
        
     }, extraReducers: {
-        [getUser.pending]: (state) => {
+        [logInUser.pending]: (state) => {
             state.loading = true;
             state.error = null;
         },
-        [getUser.fulfilled]: (state, action) => {
+        [logInUser.fulfilled]: (state, action) => {
             state.user = action.payload;
             state.loading = false;
             if (state.user.id) {
                 state.isAuthenticated = true;
             }
         },
-        [getUser.rejected]: (state, action) => {
+        [logInUser.rejected]: (state, action) => {
             state.error = action.error.message;
             state.loading = false;
         },
@@ -113,7 +113,7 @@ const authSlice = createSlice({
             state.loading = false;
         }
         ,
-        [registerUser.pending]: (state, action) => {
+        [registerUser.pending]: (state) => {
             state.loading = true;
             state.error = null;
         },

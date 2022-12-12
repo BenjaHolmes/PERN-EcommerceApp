@@ -35,7 +35,7 @@ const initialState = {
         price: 0,
         pic_path: '',
         size: 'Small',
-        quantity: 0
+        quantity: 1
     },
     productRecs: [],
     chosenProductReviews: [],
@@ -56,6 +56,43 @@ const productsSlice = createSlice({
         },
         updateChosenSize(state, action) {
             state.chosenProduct.size = action.payload;
+        },
+        setSearchParam(state, action) {
+            state.searchParam = action.payload;
+            state.filteredProducts = [...state.products];
+            switch(state.searchParam) {
+                case 'All Products':
+                    break;
+                case 'Price: High to Low':
+                    state.filteredProducts.sort((a, b) => (a.price.replace("£", "") > b.price.replace("£", "") ? -1 : 1));
+                    break;
+                case 'Price: Low to High':
+                    state.filteredProducts.sort((a, b) => (a.price.replace("£", "") > b.price.replace("£", "") ? 1 : -1));
+                    break;
+                case 'Name: A-Z':
+                    state.filteredProducts.sort((a, b) => {
+                        if(a.name.toLowerCase() < b.name.toLowerCase())
+                        return -1;
+                        if(a.name.toLowerCase() > b.name.toLowerCase())
+                        return 1;
+                        return 0;
+                    })
+                    break;
+                case 'Name: Z-A':
+                    state.filteredProducts.sort((a, b) => {
+                        if(a.name.toLowerCase() < b.name.toLowerCase())
+                        return 1;
+                        if(a.name.toLowerCase() > b.name.toLowerCase())
+                        return -1;
+                        return 0;
+                    })
+                    break;
+                default:
+                    state.filteredProducts = [...state.products];
+            }
+        
+        
+        
         }    
     }, extraReducers: {
         [getProducts.pending]: (state) => {
@@ -64,6 +101,7 @@ const productsSlice = createSlice({
         },
         [getProducts.fulfilled]: (state, action) => {
             state.products = action.payload;
+            state.filteredProducts = action.payload;
             state.loading = false;
         },
         [getProducts.rejected]: (state, action) => {
@@ -97,9 +135,9 @@ const productsSlice = createSlice({
     }
 });
 
-export const { setChosenProduct, updateChosenSize } = productsSlice.actions;
+export const { setChosenProduct, updateChosenSize, setSearchParam } = productsSlice.actions;
 
-export const productsSelector = state => state.products.products;
+export const productsSelector = state => state.products.filteredProducts;
 export const recSelector = state => state.products.productRecs;
 export const reviewSelector = state => state.products.chosenProductReviews;
 export const chosenProductSelector = state => state.products.chosenProduct;

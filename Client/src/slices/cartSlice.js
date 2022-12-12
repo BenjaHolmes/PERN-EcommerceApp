@@ -107,7 +107,7 @@ const cartSlice = createSlice({
     }
 });
 
-export const { toggleCart, clearCartMsg } = cartSlice.actions;
+export const { toggleCart, clearCartMsg, addToTempCart } = cartSlice.actions;
 
 export const cartMenuSelector = state => state.cart.cartOpen;
 export const cartItemSelector = state => state.cart.cartItems;

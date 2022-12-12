@@ -1,23 +1,21 @@
 import React from 'react';
 import './sortBy.css';
+import { useDispatch } from 'react-redux';
+import { setSearchParam } from '../../../slices/productsSlice';
 
 const SortBy = () => {
+    const dispatch = useDispatch();
     return (
         <div className='sortByContainer'>
-            <form action="#">
+            
                 <label for="lang">Sort By</label>
-                <select name="sortBy" id="sortBy">
+                <select name="sortBy" id="sortBy" onChange={(e) => dispatch(setSearchParam(e.target.value))}>
+                    <option value="All Products">All Products</option>
                     <option value="Price: High to Low">Price: High to Low</option>
                     <option value="Price: Low to High">Price: Low to High</option>
                     <option value="Name: A-Z">Name: A - Z</option>
                     <option value="Name: Z-A">Name: Z - A</option>
-                    <option value="Category: Clothing">Category: Clothing</option>
-                    <option value="Category: Footwear">Category: Footwear</option>
-                    <option value="Category: Accessories">Category: Accessories</option>
                 </select>
-                <input type="submit" value="Submit" />
-            </form>
-            
         </div>
     );
 }

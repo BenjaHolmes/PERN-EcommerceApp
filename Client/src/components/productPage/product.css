@@ -3,7 +3,7 @@
     width: 90%;
     height: 100%;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background-color: rgb(214, 217, 218);
     margin-left: auto;

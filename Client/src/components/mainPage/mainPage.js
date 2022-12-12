@@ -1,7 +1,6 @@
 import React from 'react';
 import ProductSpotlight from './productSpotlight/productSpotlight';
 import SeasonalDisplay from './seasonalDisplay/seasonalDisplay';
-import ExploreNewProduct from './exploreNewProduct/exploreNewProduct';
 
 
 
@@ -12,7 +11,6 @@ const MainPage = () => {
         <div>
             <SeasonalDisplay />
             <ProductSpotlight />
-            <ExploreNewProduct /> 
             
         </div>
     );
