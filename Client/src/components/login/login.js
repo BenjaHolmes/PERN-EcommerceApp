@@ -11,13 +11,12 @@ import { logEmailSelector,
 } from '../../slices/authSlice';
 import { menuSelector } from '../../slices/accountPageSlice';
 import { changeMenu } from '../../slices/accountPageSlice';
-import { useEffect } from 'react';
 import Register from '../register/register';
 
 const LogIn = () => {
     const dispatch = useDispatch();
     const logEmail = useSelector(logEmailSelector);
-    const logPw = useSelector(logPwSelector);    
+    const logPw = useSelector(logPwSelector);
     const menu = useSelector(menuSelector);
 
     const attemptLogin = async () => {
@@ -25,12 +24,8 @@ const LogIn = () => {
             email: logEmail,
             password: logPw
         }
-        dispatch(logInUser(data)).then(() => dispatch(getUser()));
+        dispatch(logInUser(data)).then(() => dispatch(getUser()))
         }
-        
-    useEffect(() => {
-        console.log(menu);
-    }, [menu]);
 
     return (
         

@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-// import axios from 'axios';
 
 export const getProducts = createAsyncThunk(
     'product/getProducts',
@@ -34,7 +33,9 @@ const initialState = {
         name: '',
         description: '',
         price: 0,
-        pic_path: ''
+        pic_path: '',
+        size: 'Small',
+        quantity: 0
     },
     productRecs: [],
     chosenProductReviews: [],
@@ -46,7 +47,16 @@ const productsSlice = createSlice({
     name: 'products',
     initialState,
     reducers: {
-        
+        setChosenProduct(state, action) {
+            state.chosenProduct.id = action.payload.id;
+            state.chosenProduct.name = action.payload.name;
+            state.chosenProduct.description = action.payload.description;
+            state.chosenProduct.price = action.payload.price;
+            state.chosenProduct.pic_path = action.payload.pic_path;
+        },
+        updateChosenSize(state, action) {
+            state.chosenProduct.size = action.payload;
+        }    
     }, extraReducers: {
         [getProducts.pending]: (state) => {
             state.loading = true;
@@ -87,11 +97,12 @@ const productsSlice = createSlice({
     }
 });
 
-// export const {  } = accountPageSlice.actions;
+export const { setChosenProduct, updateChosenSize } = productsSlice.actions;
 
 export const productsSelector = state => state.products.products;
 export const recSelector = state => state.products.productRecs;
 export const reviewSelector = state => state.products.chosenProductReviews;
+export const chosenProductSelector = state => state.products.chosenProduct;
 
 
 export default productsSlice.reducer;

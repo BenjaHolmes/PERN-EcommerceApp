@@ -6,6 +6,8 @@ import './productCard.css';
 const ProductCard = (props) => {
     const navigate = useNavigate();
     const imgPath = `/productImages/${props.path}.jpg`;
+
+
     return (
         <div className='cardHolder' 
         onClick={()=>navigate(`/products/${props.id}`, {

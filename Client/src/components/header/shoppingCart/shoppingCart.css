@@ -7,9 +7,7 @@
     background-color: white;
     overflow-y: scroll;
     border: 1px solid gray;
-
 }
-
 
 .buttons {
     display: flex;
@@ -30,6 +28,16 @@
     font-size: 3rem;
     letter-spacing: 2.5px;
     margin-top: 10px;
+}
+.closeMenu {
+    font-size: 20px;
+    border: 1px solid black;
+    position: absolute;
+    padding-right: 5px;
+    padding-left: 5px;
+    background-color: whitesmoke;
+    cursor: pointer;
+    border-radius: 20%;
 }
 
 .cartItem {
@@ -72,4 +80,16 @@
     margin-bottom: 10px;
     position: sticky;
     top: 0;
+}
+.logReminder {
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 3px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    font-size: 22px;
+    color: blue;
+    border: 1px solid black;
+    border-radius: 20px;
 }

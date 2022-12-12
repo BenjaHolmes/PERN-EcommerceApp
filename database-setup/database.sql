@@ -29,15 +29,9 @@ CREATE TABLE product_category (
 CREATE TABLE cart (
   id BIGSERIAL PRIMARY KEY,
   user_id BIGSERIAL REFERENCES users(id),
-  created_at DATE,
   is_current_cart BOOLEAN
 );
 
--- ALTER TABLE cart
--- ADD COLUMN user_email VARCHAR(255)
--- ALTER TABLE cart
---  ADD CONSTRAINT fk_user_cart
---  FOREIGN KEY (user_email) REFERENCES users(email);
 
 CREATE TABLE cart_item (
   product_id BIGSERIAL REFERENCES products(id),

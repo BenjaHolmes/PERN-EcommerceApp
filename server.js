@@ -11,6 +11,7 @@ const app = express();
 const bcrypt = require('bcryptjs');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
+const cartRoutes = require('./routes/cartRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
 
 // Middleware ---------------------------------------------------------------
@@ -58,7 +59,7 @@ app.post('/auth/login', passport.authenticate('local'), (req, res, next) => {
 app.use('/api/product', productRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/reviews', reviewRoutes);
-
+app.use('/api/cart', cartRoutes);
 
 
 // Server Setup  -----------------------------------------------------------

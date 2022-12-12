@@ -1,8 +1,9 @@
 .footerContainer {
     display: grid;
     width: 100%;
-    height: 200px;
+    height: 140px;
     border-top: 1px solid black;
+    background-color: rgb(214, 217, 218);
     margin-top: 10px;
     grid-template-columns: auto auto auto auto;
 }
@@ -12,5 +13,38 @@
     align-items: center;
 }
 li {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+    list-style: none;
+    width: 100%;
+}
+.listTitle {
+    color: blue;
+    margin-top: 10px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+.div3 {
+    position: relative;
+}
+.div3 img {
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    cursor: pointer;
+}
+.div3 p {
+    position: absolute;
+    width: 65%;
+    top: 50px;
+    padding-right: 60px;
+    opacity: 0;
+}
+.div3 p:hover {
+    opacity: 1;
+    animation: fadeIn 2s;
+}
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1}
 }
