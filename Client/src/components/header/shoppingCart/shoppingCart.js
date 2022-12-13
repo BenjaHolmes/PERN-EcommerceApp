@@ -31,9 +31,7 @@ const ShoppingCart = () => {
         }}
 
         if(user){
-            dispatch(checkCart(user.id))
-            .then(() => dispatch(getCartItems(user.id)))
-            .then(setTimeout(addTempItemsToCart, 1000))
+            dispatch(checkCart(user.id)).then(dispatch(getCartItems(user.id)).then(addTempItemsToCart))
         }
         
     }, [dispatch, user, tempCartItems])

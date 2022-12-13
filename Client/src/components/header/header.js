@@ -23,9 +23,7 @@ const Header = () => {
                 <img src={img1} alt="" />
                  One<span>Billion</span> </div>
             <div className="midButtons">
-                <div className="clothing" onClick={()=>navigate("/products")}> Clothing </div>
-                <div className="accessories" onClick={()=>navigate("/products")}> Accessories </div>
-                <div className="footwear" onClick={()=>navigate("/products")}> Footwear </div>
+                <div className="clothing" onClick={()=>navigate("/products")}> Products </div>
                 <div className='Log In' onClick={() => navigate("/account")}> Account </div>
             </div>
         </div>

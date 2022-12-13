@@ -28,7 +28,10 @@ const LogIn = () => {
             email: logEmail,
             password: logPw
         }
-        dispatch(logInUser(data)).then(dispatch(checkCart(user.id)));
+        dispatch(logInUser(data))
+        // .then(() => { 
+        //     console.log(user);
+        //     dispatch(checkCart(user.id))});
         }
 
 
