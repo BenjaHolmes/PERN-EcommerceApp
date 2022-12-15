@@ -1,13 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-// import axios from 'axios';
+import axios from 'axios';
 
-// export const getMembersOrders = createAsyncThunk({
-
-// })
+export const createOrder = createAsyncThunk(
+    'accountPage/createOrder',
+    async (userId) => {
+        const response = await axios.post(`http://localhost:4000/api/order/${userId}`);
+        return response.data;
+    }
+)
 
 const initialState = {
     membersOrders: [],
-    menu: 'Log In'
+    menu: 'Log In',
+    loading: false,
+    error: null
 }
 
 const accountPageSlice = createSlice({
@@ -17,6 +23,19 @@ const accountPageSlice = createSlice({
         changeMenu(state, action) {
             state.menu = action.payload;
         }
+    }, extraReducers: {
+        [createOrder.pending]: (state) => {
+            state.loading = true;
+            state.error = null;
+        },
+        [createOrder.fulfilled]: (state) => {
+            state.loading = false;
+            
+        },
+        [createOrder.rejected]: (state, action) => {
+            state.error = action.error.message;
+            state.loading = false;
+        },
     }
 });
 

@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { userSelector } from '../../slices/authSlice';
 import { cartItemSelector, checkCart, getCartItems } from '../../slices/cartSlice';
 import { useNavigate } from 'react-router-dom';
+import PayButton from './payButton';
 
 const Checkout = () => {
     const navigate = useNavigate();
@@ -41,8 +42,7 @@ const Checkout = () => {
                         : '' }
                     </div>
                     <div className="paymentContainer">
-                        Proceed to Payment
-                        <button> Checkout </button>
+                        <PayButton />
                     </div>
                 </div>
             </div>

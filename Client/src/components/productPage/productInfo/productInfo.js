@@ -25,6 +25,7 @@ const ProductInfo = (props) => {
     
     const handleAddToCart = () => {
         if (user) {
+            // Checks to see if the product is already present in the cart, and if so, doesn't add it.
             if(!cartItems.filter((e) => e.name === chosenProduct.name).length > 0) {
                 const prodData = {
                     user_id: user.id,

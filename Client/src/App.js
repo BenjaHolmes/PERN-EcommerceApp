@@ -11,11 +11,12 @@ import ProductPage from './components/productPage/productPage';
 import Product from './components/productPage/product';
 import Checkout from './components/checkout/checkout';
 import AccountPage from './components/accountPage/accountPage';
+import CheckoutSuccess from './components/checkout/checkoutSuccess';
+
 
 function App() {
   return (
     <div className="App">
-      
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<><Header /> <MainPage /> <Footer /> </>} />
@@ -23,9 +24,9 @@ function App() {
           <Route path='/products/:id' element={<><Header /> <Product /> <Footer /> </>} />
           <Route path='/account' element={<><Header /> <AccountPage /> <Footer /> </>} />
           <Route path='/checkout'  element={<><Header /> <Checkout /> <Footer /> </>} />
+          <Route path='/checkout-success'  element={<><Header /> <CheckoutSuccess /> <Footer /> </>} />
         </Routes>
       </BrowserRouter>
-      
     </div>
   );
 }

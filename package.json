@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.16.1",
+    "@stripe/stripe-js": "^1.46.0",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
@@ -20,11 +22,12 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "pg": "^8.8.0",
-    "react-star-ratings": "^2.3.0"
+    "react-star-ratings": "^2.3.0",
+    "stripe": "^11.3.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
-    "dotenv": "^16.0.2",
+    "dotenv": "^16.0.3",
     "nodemon": "^2.0.20"
   }
 }

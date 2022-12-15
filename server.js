@@ -8,11 +8,12 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const app = express();
-const bcrypt = require('bcryptjs');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
+const paymentRoutes = require('./routes/paymentRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 
 // Middleware ---------------------------------------------------------------
 app.use(express.json());
@@ -40,6 +41,7 @@ app.use (
 );
 
 // Passport Config ----------------------------------------------------------
+
 require('./config/passportConfig');
 app.use(passport.initialize());
 app.use(passport.session());
@@ -48,19 +50,13 @@ app.post('/auth/login', passport.authenticate('local'), (req, res, next) => {
     res.send(req.user);
 });
 
-
-
-
-
-
-
-
 // Route Handlers ----------------------------------------------------------
 app.use('/api/product', productRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/cart', cartRoutes);
-
+app.use('/api/payment', paymentRoutes);
+app.use('/api/order', orderRoutes);
 
 // Server Setup  -----------------------------------------------------------
 const PORT = process.env.port || 4000;

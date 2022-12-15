@@ -32,6 +32,29 @@ export const addItemToCart = createAsyncThunk(
     }
 )
 
+export const checkoutCart = createAsyncThunk(
+    'cart/checkoutCart',
+    async(data) => {
+        const response = await axios.post('http://localhost:4000/api/payment/create-checkout-session', {
+            cartItems: data.cartItems,
+            userId: data.userId
+        }).then((res) => {
+            if(res.data.url) {
+                window.location.href = res.data.url;
+            } 
+        }).catch((err) => console.log(err.message));
+        return response.data;
+    }
+)
+
+export const setCartToInactive = createAsyncThunk(
+    'cart/setCartToInactive',
+    async(userId) => {
+        const response = await axios.put(`http://localhost:4000/api/cart/${userId}`);
+        return response.data;
+    }
+)
+
 const initialState = {
     cartItems: [],
     tempCartItems: [],
@@ -91,7 +114,8 @@ const cartSlice = createSlice({
                     name: cartItem.name,
                     description: cartItem.description,
                     price: cartItem.price,
-                    pic_path: cartItem.picture_path
+                    pic_path: cartItem.picture_path,
+                    priceInt: cartItem.priceInt
                 })
             })
             state.loading = false;
@@ -109,6 +133,30 @@ const cartSlice = createSlice({
             state.loading = false;
         },
         [addItemToCart.rejected]: (state, action) => {
+            state.error = action.error.message;
+            state.loading = false;
+        },
+        [checkoutCart.pending]: (state) => {
+            state.loading = true;
+            state.error = null;
+        },
+        [checkoutCart.fulfilled]: (state) => {
+            state.cartMsg = 'Cart Checkout Success!';
+            state.loading = false;
+        },
+        [checkoutCart.rejected]: (state, action) => {
+            state.error = action.error.message;
+            state.loading = false;
+        },
+        [setCartToInactive.pending]: (state) => {
+            state.loading = true;
+            state.error = null;
+        },
+        [setCartToInactive.fulfilled]: (state, action) => {
+            state.cartMsg = action.payload;
+            state.loading = false;
+        },
+        [setCartToInactive.rejected]: (state, action) => {
             state.error = action.error.message;
             state.loading = false;
         }

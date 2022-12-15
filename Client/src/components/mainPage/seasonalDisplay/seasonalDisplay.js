@@ -27,7 +27,7 @@ const SeasonalDisplay = () => {
     return (
         <div>
             <img src={imgNumber} className="BG" alt="A Clothing Display" />
-            <h1 className='fashionText'> Experience The Autumn '22 Collection. </h1>
+            <h1 className='fashionText'> Experience The Winter '22 Collection. </h1>
         </div>
     );
 }
