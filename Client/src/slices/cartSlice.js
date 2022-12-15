@@ -49,10 +49,18 @@ const cartSlice = createSlice({
             state.cartOpen = !state.cartOpen;
         },
         addToTempCart (state, action) {
+            if(state.tempCartItems.filter((e) => e.name === action.payload.name).length > 0) {
+                state.cartMsg = 'This Item was Already found in Your Cart and was not Added Again';
+            } else {
             state.tempCartItems.push(action.payload);
+            state.cartMsg = "Item was Successfully Added to Your Cart";
+            }
         },
         clearCartMsg (state) {
             state.cartMsg = '';
+        },
+        setCartMsg (state, action) {
+            state.cartMsg = action.payload;
         }
 
     }, extraReducers: {
@@ -107,7 +115,7 @@ const cartSlice = createSlice({
     }
 });
 
-export const { toggleCart, clearCartMsg, addToTempCart } = cartSlice.actions;
+export const { toggleCart, clearCartMsg, addToTempCart, setCartMsg } = cartSlice.actions;
 
 export const cartMenuSelector = state => state.cart.cartOpen;
 export const cartItemSelector = state => state.cart.cartItems;

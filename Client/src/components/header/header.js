@@ -25,6 +25,8 @@ const Header = () => {
             <div className="midButtons">
                 <div className="clothing" onClick={()=>navigate("/products")}> Products </div>
                 <div className='Log In' onClick={() => navigate("/account")}> Account </div>
+                <div className='Checkout' onClick={() => navigate("/checkout")}> Checkout </div>
+
             </div>
         </div>
         <div className="cartButton" onClick={() => {dispatch(toggleCart())}}>

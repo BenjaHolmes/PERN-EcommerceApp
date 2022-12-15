@@ -7,14 +7,14 @@ const CartItem = (props) => {
 
     return (
         <div className='cartItem'>
-            <p> &#x2716; </p>
-            <img src={imgPath} alt=''></img>
+            <p className='deleteItem'> &#x2716; </p>
             <h4> {props.name} </h4>
             <div className="prodInfo">
-            <h5> Price: {props.price} </h5>
-            <h5> Size : {props.item_size} </h5>
-            <h5> Quantity: {props.quantity} </h5>
+            <p> Price: {props.price} </p>
+            <p> Size : {props.item_size} </p>
+            <p> Quantity: {props.quantity} </p>
             </div>
+            <img src={imgPath} alt=''></img>
         </div>
     );
 }

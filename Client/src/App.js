@@ -9,7 +9,7 @@ import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import ProductPage from './components/productPage/productPage';
 import Product from './components/productPage/product';
-import Checkout from './components/accountPage/checkout/checkout';
+import Checkout from './components/checkout/checkout';
 import AccountPage from './components/accountPage/accountPage';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           <Route path='/products' element={<><Header /> <ProductPage /> <Footer /> </>} />
           <Route path='/products/:id' element={<><Header /> <Product /> <Footer /> </>} />
           <Route path='/account' element={<><Header /> <AccountPage /> <Footer /> </>} />
-          <Route path='/account/checkout'  element={<><Header /> <Checkout /> <Footer /> </>} />
+          <Route path='/checkout'  element={<><Header /> <Checkout /> <Footer /> </>} />
         </Routes>
       </BrowserRouter>
       

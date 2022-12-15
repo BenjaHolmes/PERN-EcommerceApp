@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateChosenSize, chosenProductSelector } from '../../../slices/productsSlice';
 import { userSelector } from '../../../slices/authSlice';
 import { useEffect } from 'react';
-import { getCartItems, addItemToCart, cartMsgSelector, clearCartMsg, addToTempCart} from '../../../slices/cartSlice';
+import { getCartItems, addItemToCart, cartMsgSelector, clearCartMsg, addToTempCart, cartItemSelector, setCartMsg} from '../../../slices/cartSlice';
 import { getUser } from '../../../slices/authSlice';
 
 const ProductInfo = (props) => {
     const dispatch = useDispatch();
     const chosenProduct = useSelector(chosenProductSelector);
     const cartMsg = useSelector(cartMsgSelector);
+    const cartItems = useSelector(cartItemSelector);
 
     useEffect(() => {
         dispatch(getUser());
@@ -24,23 +25,29 @@ const ProductInfo = (props) => {
     
     const handleAddToCart = () => {
         if (user) {
-            const prodData = {
-                user_id: user.id,
-                product_id: chosenProduct.id,
-                quantity: chosenProduct.quantity,
-                item_size: chosenProduct.size
+            if(!cartItems.filter((e) => e.name === chosenProduct.name).length > 0) {
+                const prodData = {
+                    user_id: user.id,
+                    product_id: chosenProduct.id,
+                    quantity: chosenProduct.quantity,
+                    item_size: chosenProduct.size
+                }
+                dispatch(addItemToCart(prodData))
+                .then(() => dispatch(getCartItems(user.id)))
+                .then(setTimeout(clearMsg , 10000));
+            } else {
+                dispatch(setCartMsg('This Item was Already found in Your Cart and was not Added Again'))
+                setTimeout(clearMsg, 10000)
             }
-            dispatch(addItemToCart(prodData))
-            .then(() => dispatch(getCartItems(user.id)))
-            .then(setTimeout(clearMsg , 10000));
         } else {
-            dispatch(addToTempCart(chosenProduct));
+            dispatch(addToTempCart(chosenProduct))
+            setTimeout(clearMsg, 10000)
         }
     }
 
     return (
         <div className='prodBox'>
-        <div className='infoContainer'>
+        <div className='nameContainer'>
             <h1> {props.name} </h1>
         </div>
         <div className="priceContainer">
@@ -55,7 +62,15 @@ const ProductInfo = (props) => {
                 </select>
                 <button onClick={handleAddToCart}> Add to Cart </button>
         </div>
-        { cartMsg !== '' ? <p> Item was Successfully Added to Your Cart</p> : ''}
+        
+        { cartMsg === 'Item was Successfully Added to Your Cart' ? 
+            <div className='cartMessages'> 
+                <p> Item was Successfully Added to Your Cart </p> 
+                </div>: ''}
+        { cartMsg === 'This Item was Already found in Your Cart and was not Added Again' ? 
+            <div className='cartMessages'> 
+                <p> This Item was Already found in Your Cart and was not Added Again </p> 
+            </div> : ''}
         <div className="prodDescription">
             <p>
                  {props.description}
