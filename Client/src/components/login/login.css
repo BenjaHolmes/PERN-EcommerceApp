@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    min-height: 1000px;
+    min-height: 1100px;
 }
 .logInCard {
     display: flex;
@@ -44,4 +44,14 @@
     cursor: pointer;
     border-radius: 25px;
     margin: 40px;
+}
+.googleDiv {
+    margin-top: 75px;
+    border: 1px solid black;
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.googleDiv img {
+    margin-bottom: 20px;
 }

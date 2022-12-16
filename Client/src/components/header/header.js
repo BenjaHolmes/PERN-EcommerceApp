@@ -7,12 +7,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cartMenuSelector, toggleCart } from '../../slices/cartSlice';
 import ShoppingCart from './shoppingCart/shoppingCart';
 import { motion, AnimatePresence } from 'framer-motion';
+import { cartItemSelector, tempCartSelector } from '../../slices/cartSlice';
 
 const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const cartMenuOpen = useSelector(cartMenuSelector);
-
+    const cartItems = useSelector(cartItemSelector);
+    const tempItems = useSelector(tempCartSelector);
     
 
 
@@ -30,7 +32,9 @@ const Header = () => {
             </div>
         </div>
         <div className="cartButton" onClick={() => {dispatch(toggleCart())}}>
-            <p className='cartQuantity'> 3 </p> 
+            <div className='cartQuantity'>
+                { cartItems.length > 0 || tempItems.length > 0 ? <p> {cartItems.length + tempItems.length} </p> : <p> 0 </p>} 
+            </div> 
             <img src={img2} alt='' />   
         </div>
         <AnimatePresence>

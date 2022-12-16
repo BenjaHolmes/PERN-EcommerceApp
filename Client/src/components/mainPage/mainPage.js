@@ -8,7 +8,7 @@ const MainPage = () => {
 
 
     return (
-        <div>
+        <div className='mainBody'>
             <SeasonalDisplay />
             <ProductSpotlight />
             

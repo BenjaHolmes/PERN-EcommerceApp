@@ -5,7 +5,8 @@ const router = Router();
 
 // Creates a new Order record based on the items in a completed cart
 const createOrder = async (req, res) => {
-    const userId = req.params.id;
+    const userId = parseInt(req.params.id);
+    console.log(userId);
     pool.query(`SELECT * FROM cart WHERE user_id = $1 AND is_current_cart = true`,
     [userId],
     (error, results) => {

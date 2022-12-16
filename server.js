@@ -50,6 +50,26 @@ app.post('/auth/login', passport.authenticate('local'), (req, res, next) => {
     res.send(req.user);
 });
 
+// LogOut 
+app.get('/auth/logout', (req, res) => {
+    req.logOut(() => {
+        res.send({});
+    })
+})
+
+// Google Login
+require('./config/googlePassport');
+app.get('/auth/google', passport.authenticate('google', {
+    scope: 'profile',
+}), )
+
+app.get('/auth/google/callback', passport.authenticate("google", { session: true }), (req, res) => {
+    // Cant Res.send and res.redirect, so i think i have to call getUser after this.
+    // res.send(req.user);
+    res.redirect('http://localhost:3000/account')
+})
+
+
 // Route Handlers ----------------------------------------------------------
 app.use('/api/product', productRoutes);
 app.use('/api/user', userRoutes);

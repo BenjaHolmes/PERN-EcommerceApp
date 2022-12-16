@@ -36,6 +36,15 @@ export const getUser = createAsyncThunk(
     }
 )
 
+export const logOutUser = createAsyncThunk(
+    'auth/logout',
+    async () => {
+        const response = axios.get("http://localhost:4000/auth/logout", 
+        { withCredentials: true });
+        return (await response).data;
+    }
+)
+
 const initialState = {
     logPw: '',
     logEmail: '',
@@ -90,6 +99,8 @@ const authSlice = createSlice({
         [logInUser.fulfilled]: (state, action) => {
             state.user = action.payload;
             state.loading = false;
+            state.logPw = '';
+            state.logEmail = '';
             if (state.user.id) {
                 state.isAuthenticated = true;
             }
@@ -130,6 +141,19 @@ const authSlice = createSlice({
             };
         },
         [registerUser.rejected]: (state, action) => {
+            state.error = action.error.message;
+            state.loading = false;
+        }, 
+        [logOutUser.pending]: (state, action) => {
+            state.loading = true;
+            state.error = null;
+        },
+        [logOutUser.fulfilled]: (state, action) => {
+            state.isAuthorised = false;
+            state.user = '';
+            state.loading = false;
+        },
+        [logOutUser.rejected]: (state, action) => {
             state.error = action.error.message;
             state.loading = false;
         }

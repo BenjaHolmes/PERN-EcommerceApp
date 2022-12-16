@@ -12,10 +12,15 @@ const CheckoutSuccess = () => {
     const isAuthenticated = useSelector(authenticationSelector);
 
     useEffect(() => {
-        console.log(user);
-        if (user) {
-        dispatch(getUser()).then(dispatch(createOrder(user.id)).then(dispatch(setCartToInactive(user.id))))
+        if(!isAuthenticated) {
+        dispatch(getUser()).then(() => {
+            console.log(user);
+            if (user) {
+            dispatch(createOrder(user.id)).then(dispatch(setCartToInactive(user.id)));
+            }
+        })
         }
+        
     }, [dispatch, user, isAuthenticated]);
 
     return (
