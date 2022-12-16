@@ -30,7 +30,9 @@ export const getUser = createAsyncThunk(
     'auth/getUser',
     async() => {
         const response = await axios.get('http://localhost:4000/api/user',
-        {withCredentials: true});
+        {withCredentials: true,
+        headers: {'Access-Control-Allow-Origin': 'http://localhost:4000'}
+        });
         return response.data;
        
     }
@@ -115,6 +117,7 @@ const authSlice = createSlice({
         },
         [getUser.fulfilled]: (state, action) => {
             state.user = action.payload;
+            console.log(action.payload)
             state.loading = false;
             if (state.user.id) {
                 state.isAuthenticated = true;

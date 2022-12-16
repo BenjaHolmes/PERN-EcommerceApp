@@ -50,7 +50,7 @@ export const checkoutCart = createAsyncThunk(
 export const setCartToInactive = createAsyncThunk(
     'cart/setCartToInactive',
     async(userId) => {
-        const response = await axios.put(`http://localhost:4000/api/cart/${userId}`);
+        const response = await axios.put(`http://localhost:4000/api/cart`, {}, {withCredentials: true});
         return response.data;
     }
 )

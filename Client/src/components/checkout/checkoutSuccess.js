@@ -12,16 +12,11 @@ const CheckoutSuccess = () => {
     const isAuthenticated = useSelector(authenticationSelector);
 
     useEffect(() => {
-        if(!isAuthenticated) {
-        dispatch(getUser()).then(() => {
-            console.log(user);
-            if (user) {
-            dispatch(createOrder(user.id)).then(dispatch(setCartToInactive(user.id)));
-            }
-        })
-        }
+        dispatch(getUser());
+        dispatch(createOrder());
+        dispatch(setCartToInactive());
         
-    }, [dispatch, user, isAuthenticated]);
+    });
 
     return (
         <div className='successBox'>

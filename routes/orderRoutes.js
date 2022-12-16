@@ -5,8 +5,14 @@ const router = Router();
 
 // Creates a new Order record based on the items in a completed cart
 const createOrder = async (req, res) => {
-    const userId = parseInt(req.params.id);
+    console.log(req.user);
+    const userId = parseInt(req.user.id);
     console.log(userId);
+
+    if(!userId){
+        res.status(500).send("Invalid ID")
+    }
+
     pool.query(`SELECT * FROM cart WHERE user_id = $1 AND is_current_cart = true`,
     [userId],
     (error, results) => {
@@ -32,7 +38,7 @@ const createOrder = async (req, res) => {
 
 
 
-router.post('/:id', createOrder);
+router.post('/', createOrder);
 
 
 module.exports = router;

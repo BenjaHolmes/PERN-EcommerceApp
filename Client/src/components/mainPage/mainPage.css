@@ -1,0 +1,22 @@
+.mainBody {
+    min-height: 1850px;
+    height: 100%;
+}
+.logoDisplay {
+    min-height: 405px;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+.logoHolder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logoHolder Img {
+    width: 70%;
+}

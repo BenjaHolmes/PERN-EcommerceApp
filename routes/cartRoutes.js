@@ -69,7 +69,8 @@ const addItemToCart = (req, res) => {
 // Once a checkout is complete we set a cart to inactive, so that we can still use it's contents to see 
 // What the user has previously ordered.
 const setCartInactive = (req, res) => {
-    const userId = req.params.id;
+    console.log(req.user);
+    const userId = req.user.id;
     pool.query(`SELECT * FROM cart WHERE user_id = $1 AND is_current_cart = true`,
     [userId],
     (error, results) => {
@@ -87,7 +88,7 @@ const setCartInactive = (req, res) => {
 }
 
 router.get('/:id', checkCreateCart);
-router.put('/:id', setCartInactive);
+router.put('/', setCartInactive);
 router.get('/items/:id', getCartItems);
 router.post('/', addItemToCart);
 
