@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const createOrder = createAsyncThunk(
     'accountPage/createOrder',
-    async (userId) => {
+    async () => {
         const response = await axios.post(`http://localhost:4000/api/order`, {}, {withCredentials: true});
         return response.data;
     }

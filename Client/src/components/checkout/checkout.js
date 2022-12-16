@@ -41,10 +41,10 @@ const Checkout = () => {
                         pic_path={item.pic_path} /> })
                         : '' }
                     </div>
+                </div>
                     <div className="paymentContainer">
                         <PayButton />
                     </div>
-                </div>
             </div>
             }
         </div> 

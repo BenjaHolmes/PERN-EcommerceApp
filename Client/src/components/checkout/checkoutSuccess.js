@@ -1,15 +1,12 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getUser } from '../../slices/authSlice';
-import { userSelector, authenticationSelector } from '../../slices/authSlice';
 import { createOrder } from '../../slices/accountPageSlice';
 import { setCartToInactive } from '../../slices/cartSlice';
 
 const CheckoutSuccess = () => {
     const dispatch = useDispatch();
-    const user = useSelector(userSelector);
-    const isAuthenticated = useSelector(authenticationSelector);
 
     useEffect(() => {
         dispatch(getUser());
