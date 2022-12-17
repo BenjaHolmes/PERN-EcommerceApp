@@ -4,7 +4,9 @@ const router = Router();
 
 // Check if a user has a cart, and if not, creates one
 const checkCreateCart = (req, res) => {
-    const userId = req.params.id;
+    console.log(req.user);
+    const userId = req.user.id;
+    if (req.user) {
     pool.query(`SELECT * FROM cart WHERE user_id = $1 AND is_current_cart = true`, 
     [userId],
     (error, results) => {
@@ -21,11 +23,13 @@ const checkCreateCart = (req, res) => {
             })
         }
     })
+    }
 }
 
 // Get all of a specific users cart items.
 const getCartItems = (req, res) => {
-    const userId = req.params.id;
+    const userId = req.user.id;
+    if (req.user) {
     pool.query(`SELECT * FROM cart WHERE user_id = $1 AND is_current_cart = true`,
     [userId],
     (error, results) => {
@@ -44,11 +48,15 @@ const getCartItems = (req, res) => {
             })
         }
     })
+    } else {
+        res.send('User Not Logged In, so No Cart Retreived');
+    }         
 }
 
 //Add item to Cart
 const addItemToCart = (req, res) => {
-    const { user_id, product_id, quantity, item_size } = req.body;
+    const user_id = req.user.id;
+    const { product_id, quantity, item_size } = req.body;
     pool.query(`SELECT * FROM cart WHERE user_id = $1 AND is_current_cart = true`,
     [user_id],
     (error, results) => {
@@ -69,7 +77,6 @@ const addItemToCart = (req, res) => {
 // Once a checkout is complete we set a cart to inactive, so that we can still use it's contents to see 
 // What the user has previously ordered.
 const setCartInactive = (req, res) => {
-    console.log(req.user);
     const userId = req.user.id;
     pool.query(`SELECT * FROM cart WHERE user_id = $1 AND is_current_cart = true`,
     [userId],
@@ -87,9 +94,9 @@ const setCartInactive = (req, res) => {
     })
 }
 
-router.get('/:id', checkCreateCart);
+router.get('/', checkCreateCart);
 router.put('/', setCartInactive);
-router.get('/items/:id', getCartItems);
+router.get('/items', getCartItems);
 router.post('/', addItemToCart);
 
 module.exports = router;

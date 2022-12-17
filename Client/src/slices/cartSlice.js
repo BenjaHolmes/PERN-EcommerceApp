@@ -4,8 +4,8 @@ import axios from 'axios';
 //Thunk which checks if Cart exists, and if not, creates one.
 export const checkCart = createAsyncThunk(
     'cart/createCart',
-    async(userId) => {
-        const response = await axios.get(`http://localhost:4000/api/cart/${userId}`);
+    async() => {
+        const response = await axios.get(`http://localhost:4000/api/cart`, {withCredentials: true});
         return response.data;
     }
 )
@@ -13,8 +13,8 @@ export const checkCart = createAsyncThunk(
 
 export const getCartItems = createAsyncThunk(
     'cart/getCartItems',
-    async(userId) => {
-        const response = await axios.get(`http://localhost:4000/api/cart/items/${userId}`);
+    async() => {
+        const response = await axios.get(`http://localhost:4000/api/cart/items`, {withCredentials: true});
         return response.data;
     }
 )
@@ -23,11 +23,10 @@ export const addItemToCart = createAsyncThunk(
     'cart/addItemToCart',
     async(data) => {
         const response = await axios.post(`http://localhost:4000/api/cart`, {
-            user_id: data.user_id,
             product_id: data.product_id,
             quantity: data.quantity,
             item_size: data.item_size
-        });
+        }, {withCredentials: true});
         return response.data;
     }
 )
@@ -37,8 +36,7 @@ export const checkoutCart = createAsyncThunk(
     async(data) => {
         const response = await axios.post('http://localhost:4000/api/payment/create-checkout-session', {
             cartItems: data.cartItems,
-            userId: data.userId
-        }).then((res) => {
+        }, {withCredentials: true}).then((res) => {
             if(res.data.url) {
                 window.location.href = res.data.url;
             } 
@@ -49,7 +47,7 @@ export const checkoutCart = createAsyncThunk(
 
 export const setCartToInactive = createAsyncThunk(
     'cart/setCartToInactive',
-    async(userId) => {
+    async() => {
         const response = await axios.put(`http://localhost:4000/api/cart`, {}, {withCredentials: true});
         return response.data;
     }
@@ -79,6 +77,10 @@ const cartSlice = createSlice({
             state.cartMsg = "Item was Successfully Added to Your Cart";
             }
         },
+        removeFromTempCart (state, action) {
+            const filteredCart = state.tempCartItems.filter(item => item.name !== action.payload);
+            state.tempCartItems = filteredCart;    
+        },
         clearCartMsg (state) {
             state.cartMsg = '';
         },
@@ -104,7 +106,7 @@ const cartSlice = createSlice({
             state.error = null;
         },
         [getCartItems.fulfilled]: (state, action) => {
-            state.cartItems = action.payload.map(cartItem => {
+            state.cartItems = action.payload.map((cartItem) => {
                 return({
                     product_id: cartItem.product_id,
                     cart_id: cartItem.cart_id,
@@ -163,7 +165,7 @@ const cartSlice = createSlice({
     }
 });
 
-export const { toggleCart, clearCartMsg, addToTempCart, setCartMsg } = cartSlice.actions;
+export const { toggleCart, clearCartMsg, addToTempCart, setCartMsg, removeFromTempCart } = cartSlice.actions;
 
 export const cartMenuSelector = state => state.cart.cartOpen;
 export const cartItemSelector = state => state.cart.cartItems;

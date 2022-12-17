@@ -28,21 +28,20 @@ const ProductInfo = (props) => {
             // Checks to see if the product is already present in the cart, and if so, doesn't add it.
             if(!cartItems.filter((e) => e.name === chosenProduct.name).length > 0) {
                 const prodData = {
-                    user_id: user.id,
                     product_id: chosenProduct.id,
                     quantity: chosenProduct.quantity,
                     item_size: chosenProduct.size
                 }
                 dispatch(addItemToCart(prodData))
-                .then(() => dispatch(getCartItems(user.id)))
-                .then(setTimeout(clearMsg , 10000));
+                .then(() => dispatch(getCartItems()))
+                .then(setTimeout(clearMsg , 5000));
             } else {
                 dispatch(setCartMsg('This Item was Already found in Your Cart and was not Added Again'))
-                setTimeout(clearMsg, 10000)
+                setTimeout(clearMsg, 5000)
             }
         } else {
             dispatch(addToTempCart(chosenProduct))
-            setTimeout(clearMsg, 10000)
+            setTimeout(clearMsg, 5000)
         }
     }
 

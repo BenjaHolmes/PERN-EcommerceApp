@@ -22,7 +22,6 @@ const ShoppingCart = () => {
         if(tempCartItems) {
             tempCartItems.map((tempItem) => {
                 return dispatch(addItemToCart({
-                    user_id: user.id,
                     product_id: tempItem.id,
                     quantity: tempItem.quantity,
                     item_size: tempItem.size
@@ -31,7 +30,7 @@ const ShoppingCart = () => {
         }}
 
         if(user){
-            dispatch(checkCart(user.id)).then(dispatch(getCartItems(user.id)).then(addTempItemsToCart))
+            dispatch(checkCart()).then(dispatch(getCartItems()).then(addTempItemsToCart))
         }
         
     }, [dispatch, user, tempCartItems])
