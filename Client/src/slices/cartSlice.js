@@ -31,6 +31,16 @@ export const addItemToCart = createAsyncThunk(
     }
 )
 
+// Results in req.user being undefined
+export const deleteItemFromCart = createAsyncThunk(
+    'cart/deleteItemFromCart',
+    async(prodId) => {
+        const response = await axios.delete(`http://localhost:4000/api/cart/${prodId}`, 
+        {withCredentials: true});
+        return response.data;
+    }
+)
+
 export const checkoutCart = createAsyncThunk(
     'cart/checkoutCart',
     async(data) => {
@@ -59,7 +69,8 @@ const initialState = {
     priceTotal: 0,
     cartOpen: false,
     cartId: 0,
-    cartMsg: ''
+    cartMsg: '',
+    prodIdForDeletion: 0
 }
 
 const cartSlice = createSlice({
@@ -86,6 +97,12 @@ const cartSlice = createSlice({
         },
         setCartMsg (state, action) {
             state.cartMsg = action.payload;
+        },
+        clearCart (state) {
+            state.cartItems = [];
+        },
+        setProdIdForDeletion(state, action) {
+            state.prodIdForDeletion = action.payload;
         }
 
     }, extraReducers: {
@@ -161,11 +178,29 @@ const cartSlice = createSlice({
         [setCartToInactive.rejected]: (state, action) => {
             state.error = action.error.message;
             state.loading = false;
+        },
+        [deleteItemFromCart.pending]: (state) => {
+            state.loading = true;
+            state.error = null;
+        },
+        [deleteItemFromCart.fulfilled]: (state) => {
+            state.prodIdForDeletion = null;          
+            state.loading = false;
+        },
+        [deleteItemFromCart.rejected]: (state, action) => {
+            state.error = action.error.message;
+            state.loading = false;
         }
     }
 });
 
-export const { toggleCart, clearCartMsg, addToTempCart, setCartMsg, removeFromTempCart } = cartSlice.actions;
+export const { toggleCart,
+    clearCartMsg,
+    addToTempCart,
+    setCartMsg,
+    removeFromTempCart,
+    clearCart,
+    setProdIdForDeletion } = cartSlice.actions;
 
 export const cartMenuSelector = state => state.cart.cartOpen;
 export const cartItemSelector = state => state.cart.cartItems;

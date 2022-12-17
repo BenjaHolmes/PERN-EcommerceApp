@@ -12,6 +12,7 @@ const ProductSpotlight = () => {
                 <h3> NEW RANGE OF TRAINERS <span> COMING SOON </span> </h3>
             </div>
         <div className='spotlightContainer'>
+            <div className='halfDiv'></div>
             <div className="div1">
                 <img id='prod1' className='spotlightImg' src={img1} alt='Black Nike HighTops' />
                 <div className="overlay">
@@ -40,6 +41,8 @@ const ProductSpotlight = () => {
                     <figcaption className='lowerText'> £60.00 </figcaption>
                 </div>
             </div>
+            <div className='halfDiv'></div>
+
         </div>
         <div className="spotlightFooter">
                 <h4> SIGN UP TO THE MAILING LIST TO PRE-ORDER </h4>

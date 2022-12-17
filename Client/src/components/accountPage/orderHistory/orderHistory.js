@@ -4,6 +4,7 @@ import OrderCard from './orderCard';
 import { userSelector, logOutUser } from '../../../slices/authSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { clearCart } from '../../../slices/cartSlice';
 
 const OrderHistory = () => {
     const navigate = useNavigate();
@@ -12,6 +13,7 @@ const OrderHistory = () => {
 
     const handleLogOut = () => {
         dispatch(logOutUser());
+        dispatch(clearCart());
     }
 
     return (

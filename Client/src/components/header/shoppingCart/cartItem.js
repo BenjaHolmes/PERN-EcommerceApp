@@ -2,7 +2,7 @@ import React from 'react';
 import './shoppingCart.css';
 import { userSelector } from '../../../slices/authSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromTempCart } from '../../../slices/cartSlice';
+import { removeFromTempCart, setProdIdForDeletion, deleteItemFromCart, getCartItems } from '../../../slices/cartSlice';
 
 const CartItem = (props) => {
     const imgPath = `/productImages/${props.pic_path}.jpg`;
@@ -11,10 +11,8 @@ const CartItem = (props) => {
 
     const handleDelete = () => {
         if (user) {
-            // dispatch(removeCartItem({
-                //userId: user.id,
-                //prodId: props.product_id
-            // }))
+            dispatch(setProdIdForDeletion(props.product_id));
+            dispatch(deleteItemFromCart(props.product_id)).then(() => dispatch(getCartItems()));
         } else {
             dispatch(removeFromTempCart(props.name));
         }

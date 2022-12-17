@@ -7,8 +7,7 @@ const router = Router();
 const createOrder = async (req, res) => {
     console.log(req.user);
     const userId = parseInt(req.user.id);
-    console.log(userId);
-
+    
     if(!userId){
         res.status(500).send("Invalid ID")
     }

@@ -40,7 +40,9 @@ const initialState = {
     productRecs: [],
     chosenProductReviews: [],
     pageNo: 1,
-    searchParam: 'All Products'
+    searchParam: 'All Products',
+    loading: false,
+    error: null
 }
 
 const productsSlice = createSlice({
@@ -141,6 +143,6 @@ export const productsSelector = state => state.products.filteredProducts;
 export const recSelector = state => state.products.productRecs;
 export const reviewSelector = state => state.products.chosenProductReviews;
 export const chosenProductSelector = state => state.products.chosenProduct;
-
+export const productsLoadingSelector = state => state.products.loading;
 
 export default productsSlice.reducer;

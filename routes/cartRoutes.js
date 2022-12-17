@@ -4,7 +4,6 @@ const router = Router();
 
 // Check if a user has a cart, and if not, creates one
 const checkCreateCart = (req, res) => {
-    console.log(req.user);
     const userId = req.user.id;
     if (req.user) {
     pool.query(`SELECT * FROM cart WHERE user_id = $1 AND is_current_cart = true`, 
@@ -94,6 +93,27 @@ const setCartInactive = (req, res) => {
     })
 }
 
+// Currently req.user is undefined when this route is accessed
+const deleteItemFromCart = (req, res) => {
+    const user_id = req.user.id;
+    const product_id = parseInt(req.params.id);
+    pool.query(`SELECT * FROM cart WHERE user_id = $1 AND is_current_cart = true`,
+    [user_id],
+    (error, results) => {
+        if (error) throw error;
+        if (results.rows.length) {
+            const cartId = results.rows[0].id; 
+            pool.query(`DELETE FROM cart_item WHERE product_id = $1 AND cart_id = $2`,
+            [product_id, cartId],
+            (error, results) => {
+                if (error) throw error;
+                res.status(204).send("Cart Item Deleted Successfully");
+            })
+        }
+    })
+}
+
+router.delete('/:id', deleteItemFromCart);
 router.get('/', checkCreateCart);
 router.put('/', setCartInactive);
 router.get('/items', getCartItems);

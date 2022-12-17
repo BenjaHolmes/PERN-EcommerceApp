@@ -7,6 +7,12 @@
     background: rgb(214, 217, 218);
     
 }
+.halfDiv {
+    height: 550px;
+    min-width: 58px;
+    background: blue;
+    margin-top: 3px;
+}
 .spotlightImg {
     height: 550px;
     width: 280px;
