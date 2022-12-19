@@ -15,8 +15,7 @@ const ShoppingCart = () => {
     const user = useSelector(userSelector);
     const cartItems = useSelector(cartItemSelector);
     const tempCartItems = useSelector(tempCartSelector);
-    
-    
+
     useEffect(() => {
         const addTempItemsToCart = () => {
         if(tempCartItems) {
@@ -40,16 +39,14 @@ const ShoppingCart = () => {
                 <OutsideClickHandler onOutsideClick={() => dispatch(toggleCart())}>
                 <div className="cartTop">
                     <p className='closeMenu' onClick={() => dispatch(toggleCart())}> &#x2716; </p>
-                    <p> Cart ID: </p>
-                     <h1> Your Cart </h1>
-                     <div className="checkout">
-                         <p> Price Total : £ 0 </p>
-                         <p onClick={() => navigate('/account/checkout')}> Checkout </p>
-                    </div>
+                     <h1> Shopping Cart </h1>
                     { user === '' ? <div> 
                         <p className='logReminder'> 
                             Remember to Log In to save the items in your Cart!
                         </p> </div> : '' }
+                     <div className="checkout">
+                         <p onClick={() => navigate('/checkout')}> Proceed To Checkout &#x2192; </p>
+                    </div>
                 </div>
                  <div className="itemlist">
                     { cartItems !== null ? cartItems.map((item, index) => {

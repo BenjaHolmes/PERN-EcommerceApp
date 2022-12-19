@@ -9,11 +9,11 @@ const PayButton = () => {
     const user = useSelector(userSelector);
 
     return (
-            <div>
+            <div className="paymentContainer">
                 <button onClick={() => dispatch(checkoutCart({
                     cartItems,
                     userId: user.id
-                }))}> Check Out </button>
+                }))}> Continue to Payment &#x2192; </button>
             </div>           
     );
 }

@@ -63,6 +63,19 @@ export const setCartToInactive = createAsyncThunk(
     }
 )
 
+export const updateCartQuantity = createAsyncThunk(
+    'cart/incrementCartQuantity',
+    async (data) => {
+        console.log(data);
+        const response = await axios.put('http://localhost:4000/api/cart/increment', {
+            cart_id: data.cart_id,
+            product_id: data.product_id,
+            quantity: data.quantity
+        }, {withCredentials: true});
+        return response.data;
+    }
+)
+
 const initialState = {
     cartItems: [],
     tempCartItems: [],
@@ -188,6 +201,17 @@ const cartSlice = createSlice({
             state.loading = false;
         },
         [deleteItemFromCart.rejected]: (state, action) => {
+            state.error = action.error.message;
+            state.loading = false;
+        },
+        [updateCartQuantity.pending]: (state) => {
+            state.loading = true;
+            state.error = null;
+        },
+        [updateCartQuantity.fulfilled]: (state) => {          
+            state.loading = false;
+        },
+        [updateCartQuantity.rejected]: (state, action) => {
             state.error = action.error.message;
             state.loading = false;
         }

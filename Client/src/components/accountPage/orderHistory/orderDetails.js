@@ -7,6 +7,10 @@ import { motion } from 'framer-motion';
 const OrderDetails = (props) => {
     const dispatch = useDispatch();
     const orderItems = useSelector(orderItemSelector);
+    let totalPrice = 0 
+    orderItems.forEach((item) => {
+        totalPrice += item.itemPrice * item.itemQuantity;
+    })
 
     useEffect(() => {
         dispatch(getOrderItems(props.order_id));
@@ -26,7 +30,7 @@ const OrderDetails = (props) => {
                     <p> Amount Ordered </p> 
                 </div>
                 <div className='itemsDiv'>
-                    { orderItems != null ? orderItems.map((item, index) => {
+                    { orderItems != null ? orderItems.map((item) => {
                         return <div className='item'>
                             <img src={`/productImages/${item.picPath}.jpg`} alt=''/> 
                             <p> {item.itemName} </p>
@@ -35,6 +39,9 @@ const OrderDetails = (props) => {
                             <p> {item.itemQuantity} </p>
                         </div>
                     }) : '' }
+                </div>
+                <div className='totals'>
+                    <p> Order Total : £{totalPrice} </p> 
                 </div>
             </motion.div>  
     );

@@ -32,10 +32,10 @@ const OrderHistory = () => {
             </div>
             <h3> Your Previous Orders</h3>
             <div className='listTitles'>
-                <p> Order ID </p>
+                <p className='OID'> Order ID </p>
                 <p className='DOC'> Date of Completion </p>
                 <p> </p>
-                <p> Exapand Order Details </p>
+                <p className='EOD'> Expand Order Details </p>
             </div>
             <div className="orderHistory">
                 { orders != null ? orders.map((order, index) => 

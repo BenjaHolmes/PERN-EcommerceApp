@@ -12,7 +12,7 @@ const OrderCard = (props) => {
         <div>
         <div className='order'>
             <p> 00000000{props.order_id} </p>
-            <p> {props.date} </p>
+            <p> {props.date.slice(0, 10)} </p>
             <p> </p>
             <p className='orderBtn' onClick={() => dispatch(setChosenOrder(props.order_id))}> + </p>
         </div>

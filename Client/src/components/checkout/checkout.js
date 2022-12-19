@@ -25,7 +25,9 @@ const Checkout = () => {
             { user.id === undefined ?
             <div>
                 <div className='infoContainer'> 
-                    <h1> Please Log in before you check out </h1>
+                    <div className='headerHolder'>
+                        <h1> Please Log in <br /> before you check out </h1>
+                    </div>
                 </div>
                 <p className='logLink' onClick={() => navigate('/account')}> Click Here to go to the Login Page </p> 
             </div>
@@ -37,12 +39,12 @@ const Checkout = () => {
                         { cartItems !== null ? cartItems.map((item, index) => {
                         return <CheckoutItem key={index} product_id={item.product_id} cart_id={item.cart_id}
                         quantity={item.quantity} item_size={item.item_size} user_id={item.user_id}
-                        name={item.name} description={item.description} price={item.price}
+                        name={item.name} description={item.description} price={item.priceInt} 
                         pic_path={item.pic_path} /> })
                         : '' }
                     </div>
                 </div>
-                    <div className="paymentContainer">
+                    <div >
                         <PayButton />
                     </div>
             </div>

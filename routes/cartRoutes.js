@@ -93,7 +93,6 @@ const setCartInactive = (req, res) => {
     })
 }
 
-// Currently req.user is undefined when this route is accessed
 const deleteItemFromCart = (req, res) => {
     const user_id = req.user.id;
     const product_id = parseInt(req.params.id);
@@ -113,10 +112,22 @@ const deleteItemFromCart = (req, res) => {
     })
 }
 
+const updateCartQuantity = (req, res) => {
+    const { cart_id, product_id, quantity } = req.body;
+    pool.query(`UPDATE cart_item
+                SET quantity = $1
+                WHERE cart_id = $2 AND product_id = $3`, [quantity, cart_id, product_id],
+                (error, results) => {
+                    if (error) throw error;
+                    res.status(200).send("Quantity Updated Successfully");
+                });
+};
+
 router.delete('/:id', deleteItemFromCart);
 router.get('/', checkCreateCart);
 router.put('/', setCartInactive);
 router.get('/items', getCartItems);
 router.post('/', addItemToCart);
+router.put('/increment', updateCartQuantity);
 
 module.exports = router;

@@ -53,7 +53,7 @@ const LogIn = () => {
                     <h3 onClick={() => dispatch(changeMenu('Register'))}> Not Registered? Click Here </h3>
                     <div className='googleDiv' onClick={googleSignIn}>
                         <img src={GoogleIcon} alt='Google Logo'/>
-                        <p> Click Here to Log In with Google</p>
+                        <p> Or Log In with Google</p>
                     </div>
                 </div>
                 : <Register /> }
