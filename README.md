@@ -46,7 +46,6 @@ more of our items.
 
 <ins> Log In Prompts </ins>
 
-
 ![LoginPrompt](https://user-images.githubusercontent.com/90611253/208540312-f0413c15-f526-4c93-80ee-3a831bb06955.png)
 * Throughout the site the user is occasionally reminded to log in, and it's required to checkout. When the user logs in, 
 items in their temporary shopping cart will be added to their permanent one, which will then persist through log ins.
@@ -57,8 +56,8 @@ items in their temporary shopping cart will be added to their permanent one, whi
 
 <ins> Google Sign In Example </ins>
 
-
 ![GoogleSignIn](https://user-images.githubusercontent.com/90611253/208540665-a9b7c62d-5d0a-47b2-918a-37ead6126867.png)
+
 *An Example of the Google Page
 
 <ins> Pre-Payment </ins>
