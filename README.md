@@ -58,17 +58,17 @@ items in their temporary shopping cart will be added to their permanent one, whi
 
 ![GoogleSignIn](https://user-images.githubusercontent.com/90611253/208540665-a9b7c62d-5d0a-47b2-918a-37ead6126867.png)
 
-*An Example of the Google Page
+* An Example of the Google Page
 
 <ins> Pre-Payment </ins>
 ![preCheckoutPage](https://user-images.githubusercontent.com/90611253/208540561-aeb45d3f-ab78-4873-b513-9e3833339af9.png)
-*Just before accessing the Stripe Checkout, the member can check on their chosen items, and change the quantity or remove them.
+* Just before accessing the Stripe Checkout, the member can check on their chosen items, and change the quantity or remove them.
 
 <ins> Payment Example </ins>
 ![stripeCheckoutExample](https://user-images.githubusercontent.com/90611253/208540748-dea43576-2341-41ff-9c78-0f1e5428ed15.png)
-*We can see that when the member accesses the payment page, they get a final chance to check their items and the price before they go through
+* We can see that when the member accesses the payment page, they get a final chance to check their items and the price before they go through
 with payment.
 
 <ins> Completed Orders </ins>
 ![postCheckoutOrder](https://user-images.githubusercontent.com/90611253/208540877-0005137c-c8d8-47d2-8946-94042e052953.png)
-*Once the user has paid, they can navigate to their account page, and their previous order is displayed here, along with any other ones they have made.
+* Once the user has paid, they can navigate to their account page, and their previous order is displayed here, along with any other ones they have made.
