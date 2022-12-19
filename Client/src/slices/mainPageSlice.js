@@ -11,14 +11,29 @@ const mainPageSlice = createSlice({
     initialState,
     reducers: {
         incrementCarousel(state) {
-            state.carouselImg++
+            if (state.carouselImg === 1) {
+                state.carouselImg = 2;
+            } else if (state.carouselImg === 2) {
+                state.carouselImg = 3;
+            } else if (state.carouselImg === 3) {
+                state.carouselImg = 1;
+            }
+        },
+        decrementCarousel(state) {
+            if (state.carouselImg === 1) {
+                state.carouselImg = 3;
+            } else if (state.carouselImg === 2) {
+                state.carouselImg = 1;
+            } else if (state.carouselImg === 3) {
+                state.carouselImg = 2;
+            }
         }
     }
 });
 
-export const { incrementCarousel } = mainPageSlice.actions;
+export const { incrementCarousel, decrementCarousel } = mainPageSlice.actions;
 
-// export const themeSelector = state => state.header.lightThemeOn;
+export const imgSelector = state => state.mainPage.carouselImg;
 
 
 export default mainPageSlice.reducer;

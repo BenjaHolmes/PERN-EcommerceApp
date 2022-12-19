@@ -29,15 +29,35 @@ const createOrder = async (req, res) => {
     })
 }
 
+const getMembersOrders = (req, res) => {
+    const userId = parseInt(req.user.id);
+    pool.query(`SELECT * FROM orders WHERE user_id = $1`,
+    [userId],
+    (error, results) => {
+        if (error) throw error;
+        res.send(results.rows);
+    })
+}
 
-
-
+const getOrderItems = (req, res) => {
+    const orderId = req.params.id;
+    pool.query(`SELECT * FROM orders
+    JOIN cart_item ON orders.cart_id = cart_item.cart_id
+    JOIN products ON cart_item.product_id = products.id
+    WHERE orders.id = $1`, [orderId],
+    (error, results) => {
+        if (error) throw error;
+        res.send(results.rows);
+    })
+}
 
 
 
 
 
 router.post('/', createOrder);
+router.get('/', getMembersOrders);
+router.get('/:id', getOrderItems);
 
 
 module.exports = router;

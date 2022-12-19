@@ -1,15 +1,26 @@
 import React from 'react';
 import './orderHistory.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { motion, AnimatePresence } from 'framer-motion';
+import { chosenOrderSelector, setChosenOrder } from '../../../slices/accountPageSlice';
+import OrderDetails from './orderDetails.js';
 
-const OrderCard = () => {
+const OrderCard = (props) => {
+    const dispatch = useDispatch();
+    const chosenOrderId = useSelector(chosenOrderSelector);
     return (
+        <div>
         <div className='order'>
-            <div className='itemsList'>
-                <p> item 1 </p>
-                <p> item 2 </p>
-            </div>
-            Date of Order
-            Price Paid
+            <p> 00000000{props.order_id} </p>
+            <p> {props.date} </p>
+            <p> </p>
+            <p className='orderBtn' onClick={() => dispatch(setChosenOrder(props.order_id))}> + </p>
+        </div>
+            <AnimatePresence>
+                { chosenOrderId === props.order_id ? 
+                    <OrderDetails order_id={props.order_id} />
+                : '' }
+            </AnimatePresence>    
         </div>
     );
 }

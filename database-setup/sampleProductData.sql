@@ -321,3 +321,7 @@ VALUES
 (60, 3);
 
 
+SELECT * FROM orders
+JOIN cart_item ON orders.cart_id = cart_item.cart_id
+JOIN products ON cart_item.product_id = products.id
+WHERE user_id = 1;

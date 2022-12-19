@@ -1,32 +1,21 @@
 import React from 'react';
-import img1 from '../../../imgs/display2.jpg';
-// import img2 from '../../imgs/display3.jpg';
-// import img3 from '../../imgs/display4.jpg';
-import { useState } from 'react';
 import './seasonalDisplay.css';
+import { imgSelector } from '../../../slices/mainPageSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { incrementCarousel, decrementCarousel } from '../../../slices/mainPageSlice';
 
 const SeasonalDisplay = () => {
-    const [imgNumber] = useState(img1);
-    /* useEffect(() => {
-        setInterval(() => {
-            switch (imgNumber) {
-                case img1:
-                    setImgNumber(img2); 
-                    break;
-                case img2:
-                    setImgNumber(img3);
-                    break;
-                case img3:
-                    setImgNumber(img1);
-                    break;
-                default:
-                    console.log("default hit");
-                }
-        }, 5000); 
-    }, [imgNumber]); */
+    const dispatch = useDispatch();
+    const imgNumber = useSelector(imgSelector);
+    const imgSrc = `/display/${imgNumber}.jpg`;
+    
     return (
         <div>
-            <img src={imgNumber} className="BG" alt="A Clothing Display" />
+            <div className='seasonalDisplay'>
+                <i className='arrow right' onClick={() => dispatch(incrementCarousel())}></i>
+                <img src={imgSrc} className="BG" alt="A Clothing Display" />
+                <i className='arrow left' onClick={() => dispatch(decrementCarousel())}></i>
+            </div>
             <h1 className='fashionText'> Experience The Winter '22 Collection. </h1>
         </div>
     );
